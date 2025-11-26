@@ -214,7 +214,7 @@ function DnsPage(): React.ReactElement {
 
       {/* Decorative Images - Desktop only */}
       {decorativeImages.map((img, index) => (
-        <ResponsiveImage
+        <img
           key={`decorative-${index}`}
           src={img.src}
           alt="Group"

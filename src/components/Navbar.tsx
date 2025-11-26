@@ -149,7 +149,7 @@ const Navbar = React.memo<NavbarProps>(
             {navigationItems.map((item, index) => {
               const isActive =
                 location.pathname === item.to ||
-                (item.to !== "/" && location.pathname.startsWith(item.to));
+                location.pathname.startsWith(item.to);
 
               return (
                 <Link

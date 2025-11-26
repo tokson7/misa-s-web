@@ -10,7 +10,7 @@ interface ContentSectionProps {
   rectangleClasses?: string;
   contentClasses?: string;
   iconClasses?: string;
-  iconVectors?: string[];
+  iconVectors?: readonly string[];
   index?: number;
 }
 

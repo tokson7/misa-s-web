@@ -20,9 +20,6 @@ import vector from "../../assets/desktop6/vector.svg";
 
 const hostingCompanies = ["Bluehost", "SiteGround", "Hostinger"];
 
-const HEADER_GRADIENT =
-  "bg-[linear-gradient(to_bottom_right,rgba(47,0,255,1)_0%,rgba(169,255,71,1)_50%)_bottom_right_/_50%_50%_no-repeat,linear-gradient(to_bottom_left,rgba(47,0,255,1)_0%,rgba(169,255,71,1)_50%)_bottom_left_/_50%_50%_no-repeat,linear-gradient(to_top_left,rgba(47,0,255,1)_0%,rgba(169,255,71,1)_50%)_top_left_/_50%_50%_no-repeat,linear-gradient(to_top_right,rgba(47,0,255,1)_0%,rgba(169,255,71,1)_50%)_top_right_/_50%_50%_no-repeat]";
-
 function HostingPage(): React.ReactElement {
   return (
     <div className="relative w-full min-w-0 lg:min-w-[1440px] min-h-screen lg:h-[1266px] bg-white overflow-x-hidden">

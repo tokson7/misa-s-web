@@ -14,7 +14,7 @@ interface VectorIconGroupProps {
 }
 
 const VectorIconGroup = React.memo<VectorIconGroupProps>(
-  ({ vectors, containerClassName = "", desktopOnly = true }) => {
+  ({ vectors, desktopOnly = true }) => {
     return (
       <>
         {vectors.map((vector, index) => (
