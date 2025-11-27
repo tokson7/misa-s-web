@@ -22,4 +22,3 @@ const PageHeader = React.memo<PageHeaderProps>(
 PageHeader.displayName = "PageHeader";
 
 export default PageHeader;
-

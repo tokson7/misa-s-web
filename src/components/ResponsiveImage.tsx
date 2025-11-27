@@ -9,13 +9,7 @@ interface ResponsiveImageProps {
 }
 
 const ResponsiveImage = React.memo<ResponsiveImageProps>(
-  ({
-    src,
-    alt,
-    className = "",
-    loading = "lazy",
-    objectFit = "contain",
-  }) => {
+  ({ src, alt, className = "", loading = "lazy", objectFit = "contain" }) => {
     const objectFitClass =
       objectFit === "contain"
         ? "object-contain"
@@ -41,4 +35,3 @@ const ResponsiveImage = React.memo<ResponsiveImageProps>(
 ResponsiveImage.displayName = "ResponsiveImage";
 
 export default ResponsiveImage;
-

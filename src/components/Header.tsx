@@ -77,4 +77,3 @@ const Header = React.memo<HeaderProps>(
 Header.displayName = "Header";
 
 export default Header;
-

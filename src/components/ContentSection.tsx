@@ -132,4 +132,3 @@ const ContentSection = React.memo<ContentSectionProps>(
 ContentSection.displayName = "ContentSection";
 
 export default ContentSection;
-

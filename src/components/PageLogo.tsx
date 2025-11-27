@@ -11,13 +11,7 @@ interface PageLogoProps {
 }
 
 const PageLogo = React.memo<PageLogoProps>(
-  ({
-    logo1,
-    logo2,
-    logo1Alt = "Logo",
-    logo2Alt = "Logo",
-    className = "",
-  }) => {
+  ({ logo1, logo2, logo1Alt = "Logo", logo2Alt = "Logo", className = "" }) => {
     return (
       <Link
         to="/"
@@ -45,4 +39,3 @@ const PageLogo = React.memo<PageLogoProps>(
 PageLogo.displayName = "PageLogo";
 
 export default PageLogo;
-
