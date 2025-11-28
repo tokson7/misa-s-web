@@ -12,14 +12,15 @@ function HomePage(): React.ReactElement {
         <div 
           className="absolute w-[1440px] h-[703px] left-0 top-0"
           style={{
+            boxSizing: 'border-box',
             background: 'radial-gradient(60.42% 123.76% at 70.62% 52.56%, #2F00FF 54.12%, #A9FF47 96.63%)',
             boxShadow: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
             transform: 'rotate(-180deg)'
           }}
         />
 
-        {/* Logo - Group 18 / Vrstva_1 */}
-        <div className="absolute left-[9.24%] right-[81.74%] top-[0.65%] bottom-[98.87%]">
+        {/* Logo - Group 18 */}
+        <div className="absolute w-[217px] h-[89px] left-[46px] top-[19px]">
           <Link to="/" className="flex items-center gap-2">
             <NetworkIcon color="white" size={31} />
             <span className="text-white [font-family:'Funnel_Display-ExtraBold',Helvetica] font-extrabold text-2xl">
@@ -59,49 +60,43 @@ function HomePage(): React.ReactElement {
 
         {/* Phone Frames - 5 frames total */}
         {/* Frame 9 - Leftmost */}
-        <div className="absolute w-[275px] h-[432px] left-[41px] top-[180px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll">
-          <div className="absolute w-[3600px] h-[351px] left-0 top-0 bg-black">
-            {/* Placeholder for phone images */}
-            <div className="absolute w-[310px] h-[552px] left-0 top-0 bg-blue-500" />
-            <div className="absolute w-[310px] h-[552px] left-[310px] top-0 bg-blue-500" />
-            <div className="absolute w-[305px] h-[543px] left-[500px] top-0 bg-blue-500" />
-          </div>
+        <div 
+          className="absolute w-[275px] h-[432px] left-[41px] top-[180px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll"
+          style={{ boxSizing: 'border-box' }}
+        >
+          <div className="absolute w-full h-full bg-black" />
         </div>
 
         {/* Frame 7 - Second from left */}
-        <div className="absolute w-[276px] h-[432px] left-[741px] top-[181px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll">
-          <div className="absolute w-[3600px] h-[351px] left-0 top-0 bg-black">
-            <div className="absolute w-[310px] h-[552px] left-0 top-0 bg-blue-500" />
-            <div className="absolute w-[310px] h-[552px] left-[310px] top-0 bg-blue-500" />
-            <div className="absolute w-[305px] h-[543px] left-[500px] top-0 bg-blue-500" />
-          </div>
+        <div 
+          className="absolute w-[276px] h-[432px] left-[741px] top-[181px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll"
+          style={{ boxSizing: 'border-box' }}
+        >
+          <div className="absolute w-full h-full bg-black" />
         </div>
 
         {/* Frame 11 - Center (main, with white border) */}
-        <div className="absolute w-[341px] h-[535px] left-[357px] top-[124px] bg-black border-[5px] border-white rounded-[20px] overflow-x-scroll">
-          <div className="absolute w-[3600px] h-[351px] left-0 top-0 bg-black">
-            <div className="absolute w-[310px] h-[552px] left-0 top-[-17px] bg-blue-500" />
-            <div className="absolute w-[310px] h-[552px] left-[310px] top-0 bg-blue-500" />
-            <div className="absolute w-[305px] h-[543px] left-[500px] top-0 bg-blue-500" />
-          </div>
+        <div 
+          className="absolute w-[341px] h-[535px] left-[357px] top-[124px] bg-black border-[5px] border-white rounded-[20px] overflow-x-scroll"
+          style={{ boxSizing: 'border-box' }}
+        >
+          <div className="absolute w-full h-full bg-black" />
         </div>
 
         {/* Frame 8 - Fourth */}
-        <div className="absolute w-[277px] h-[432px] left-[1057px] top-[181px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll">
-          <div className="absolute w-[3600px] h-[351px] left-0 top-0 bg-black">
-            <div className="absolute w-[310px] h-[552px] left-0 top-0 bg-blue-500" />
-            <div className="absolute w-[310px] h-[552px] left-[310px] top-0 bg-blue-500" />
-            <div className="absolute w-[305px] h-[543px] left-[500px] top-0 bg-blue-500" />
-          </div>
+        <div 
+          className="absolute w-[277px] h-[432px] left-[1057px] top-[181px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll"
+          style={{ boxSizing: 'border-box' }}
+        >
+          <div className="absolute w-full h-full bg-black" />
         </div>
 
         {/* Frame 7 - Rightmost */}
-        <div className="absolute w-[277px] h-[432px] left-[1372px] top-[181px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll">
-          <div className="absolute w-[3600px] h-[351px] left-0 top-0 bg-black">
-            <div className="absolute w-[310px] h-[552px] left-0 top-0 bg-blue-500" />
-            <div className="absolute w-[310px] h-[552px] left-[310px] top-0 bg-blue-500" />
-            <div className="absolute w-[305px] h-[543px] left-[500px] top-0 bg-blue-500" />
-          </div>
+        <div 
+          className="absolute w-[277px] h-[432px] left-[1372px] top-[181px] bg-black border-[3px] border-black rounded-[20px] overflow-x-scroll"
+          style={{ boxSizing: 'border-box' }}
+        >
+          <div className="absolute w-full h-full bg-black" />
         </div>
 
         {/* Rectangle 36: Black Section */}
@@ -132,6 +127,7 @@ function HomePage(): React.ReactElement {
         <div 
           className="absolute left-[9.13%] right-[60.8%] top-[55.69%] bottom-[38.69%] rounded-[20px]"
           style={{
+            boxSizing: 'border-box',
             background: 'linear-gradient(239.6deg, #A9FF47 28.79%, rgba(255, 255, 255, 0) 80.69%)',
             transform: 'rotate(-173.7deg)'
           }}
@@ -141,6 +137,7 @@ function HomePage(): React.ReactElement {
         <div 
           className="absolute left-[22.64%] right-[47.29%] top-[42.17%] bottom-[52.21%] rounded-[20px]"
           style={{
+            boxSizing: 'border-box',
             background: 'linear-gradient(239.6deg, #A9FF47 28.79%, #FFFFFF 80.69%)',
             transform: 'rotate(-175.22deg)'
           }}
@@ -148,16 +145,33 @@ function HomePage(): React.ReactElement {
 
         {/* Computer Icons - Group (left) */}
         <div className="absolute left-[7.15%] right-[70.95%] top-[53.41%] bottom-[40.44%]">
-          <div className="w-full h-full bg-black flex items-center justify-center">
+          <div className="w-full h-full flex items-center justify-center">
             <NetworkIcon color="white" size={48} />
           </div>
         </div>
 
         {/* Computer Icons - Group (top) */}
         <div className="absolute left-0 right-[78.1%] top-[26.97%] bottom-[66.89%]">
-          <div className="w-full h-full bg-black flex items-center justify-center">
+          <div className="w-full h-full flex items-center justify-center">
             <NetworkIcon color="white" size={48} />
           </div>
+        </div>
+
+        {/* Group - Arrow vectors pointing left */}
+        <div className="absolute left-[4.31%] right-[63.48%] top-[25.08%] bottom-[52.82%]">
+          {/* Vector arrows */}
+          <div 
+            className="absolute left-[29.09%] right-[68.89%] top-[29.65%] bottom-[69.74%] bg-black"
+            style={{ transform: 'rotate(-180deg)' }}
+          />
+          <div 
+            className="absolute left-[23.46%] right-[74.52%] top-[29.65%] bottom-[69.74%] bg-black"
+            style={{ transform: 'rotate(-180deg)' }}
+          />
+          <div 
+            className="absolute left-[62.78%] right-[30%] top-[30.21%] bottom-[68.15%] bg-black"
+            style={{ transform: 'rotate(-180deg)' }}
+          />
         </div>
 
         {/* Router Text */}
@@ -171,6 +185,7 @@ function HomePage(): React.ReactElement {
         <div 
           className="absolute left-[39.58%] right-[25.42%] top-[33.9%] bottom-[59.55%] rounded-[20px]"
           style={{
+            boxSizing: 'border-box',
             background: 'linear-gradient(239.6deg, #A9FF47 28.79%, #FFFFFF 80.69%)'
           }}
         />
@@ -182,10 +197,30 @@ function HomePage(): React.ReactElement {
           If you open your browser and type a website address, your request travels from your computer
         </p>
 
+        {/* Arrow Vectors in Rectangle 13 area */}
+        <div 
+          className="absolute left-[80.63%] right-[17.36%] top-[38.5%] bottom-[60.89%] bg-black"
+        />
+        <div 
+          className="absolute left-[86.26%] right-[11.73%] top-[38.5%] bottom-[60.89%] bg-black"
+        />
+        <div 
+          className="absolute left-[80.84%] right-[11.94%] top-[33.06%] bottom-[65.31%] bg-black"
+        />
+        <div 
+          className="absolute left-[63.54%] right-[4.72%] top-[33.96%] bottom-[61.5%] bg-black"
+        />
+
         {/* Green Arrow Icons (Vrstva_1) */}
-        <div className="absolute w-[38px] h-[38px] left-[756px] top-[868px] bg-[#A9FF47]" />
-        <div className="absolute w-[38px] h-[38px] left-[551px] top-[1032px] bg-[#A9FF47]" />
-        <div className="absolute w-[38px] h-[38px] left-[756px] top-[1230px] bg-[#A9FF47]" />
+        <div className="absolute w-[38px] h-[38px] left-[756px] top-[868px]">
+          <div className="w-full h-full bg-[#A9FF47]" />
+        </div>
+        <div className="absolute w-[38px] h-[38px] left-[551px] top-[1032px]">
+          <div className="w-full h-full bg-[#A9FF47]" />
+        </div>
+        <div className="absolute w-[38px] h-[38px] left-[756px] top-[1230px]">
+          <div className="w-full h-full bg-[#A9FF47]" />
+        </div>
 
         {/* Rectangle 36: Radial Gradient Section */}
         <div 
@@ -206,6 +241,7 @@ function HomePage(): React.ReactElement {
         <div 
           className="absolute left-[50.21%] right-[28.97%] top-[46.94%] bottom-[46.48%] rounded-[20px]"
           style={{
+            boxSizing: 'border-box',
             background: 'linear-gradient(239.6deg, #A9FF47 28.79%, #FFFFFF 80.69%)',
             transform: 'rotate(43.31deg)'
           }}
@@ -217,6 +253,26 @@ function HomePage(): React.ReactElement {
         >
           → back to your computer
         </p>
+
+        {/* Footer Vectors - NetworkIcon representation */}
+        <div className="absolute left-[50.47%] right-[49.05%] top-[64.94%] bottom-[34.92%]">
+          <NetworkIcon color="white" size={32} />
+        </div>
+        <div className="absolute left-[50.47%] right-[49.05%] top-[65.21%] bottom-[34.65%]">
+          <NetworkIcon color="white" size={32} />
+        </div>
+        <div className="absolute left-[50.47%] right-[49.05%] top-[64.67%] bottom-[35.2%]">
+          <NetworkIcon color="white" size={32} />
+        </div>
+        <div className="absolute left-[49.03%] right-[50.01%] top-[64.94%] bottom-[34.92%]">
+          <NetworkIcon color="white" size={32} />
+        </div>
+        <div className="absolute left-[49.99%] right-[49.53%] top-[65.08%] bottom-[34.79%]">
+          <NetworkIcon color="white" size={32} />
+        </div>
+        <div className="absolute left-[49.99%] right-[49.53%] top-[64.8%] bottom-[35.06%]">
+          <NetworkIcon color="white" size={32} />
+        </div>
 
         {/* Rectangle 44: Footer Section */}
         <div className="absolute w-[1610px] h-[1727px] left-0 top-[3139px] bg-[#1E1E1E]" />
