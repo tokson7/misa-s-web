@@ -42,14 +42,14 @@ function DomainsPage(): React.ReactElement {
           </nav>
         </div>
 
-        {/* Top Right Corner Icon */}
-        <div className="absolute top-0 right-0 -mt-8 -mr-8">
-          <NetworkIcon color="#BFFF00" size={120} />
+        {/* Top Right Corner Icon - Large, partially extending beyond page */}
+        <div className="absolute -top-8 right-0 z-0">
+          <NetworkIcon color="#BFFF00" size={150} />
         </div>
       </header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-12">
+      <div className="relative max-w-7xl mx-auto px-8 py-12 z-10">
         {/* Main Title */}
         <h1 className="mb-16 [font-family:'Funnel_Display-Bold',Helvetica] font-bold text-8xl leading-tight">
           <span className="text-black">Domains</span>

@@ -5,7 +5,7 @@ import { NetworkIcon } from "../components/PixelIcon";
 function HostingPage(): React.ReactElement {
   return (
     <main className="relative w-full min-h-screen bg-white overflow-x-hidden">
-      {/* Background Gradient - vibrant green to purple/blue */}
+      {/* Background Gradient - vibrant green to purple/blue covering entire page */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#BFFF00] via-[#80FF00] to-[#4A4AFF]" />
 
       {/* Header */}
@@ -46,29 +46,31 @@ function HostingPage(): React.ReactElement {
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main Content - White background for content area */}
       <div className="relative max-w-7xl mx-auto px-8 py-12 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
-          {/* Left Side - Main Title */}
-          <div>
-            <h1 className="mb-8 [font-family:'Funnel_Display-Bold',Helvetica] font-bold text-8xl leading-tight text-black">
-              Web hosting
-            </h1>
-          </div>
+        <div className="bg-white/95 rounded-lg p-8 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Side - Main Title */}
+            <div>
+              <h1 className="mb-8 [font-family:'Funnel_Display-Bold',Helvetica] font-bold text-8xl leading-tight text-black">
+                Web hosting
+              </h1>
+            </div>
 
-          {/* Right Side - Video Player */}
-          <div className="w-full">
-            <div className="rounded-lg border-2 border-black overflow-hidden bg-gray-200 aspect-video">
-              {/* Placeholder for video */}
-              <div className="w-full h-full flex items-center justify-center bg-gray-300">
-                <span className="text-gray-600 text-lg">Video Player Placeholder</span>
+            {/* Right Side - Video Player */}
+            <div className="w-full">
+              <div className="rounded-lg border-2 border-black overflow-hidden bg-gray-200 aspect-video">
+                {/* Placeholder for video */}
+                <div className="w-full h-full flex items-center justify-center bg-gray-300">
+                  <span className="text-gray-600 text-lg">Video Player Placeholder</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Content Cards */}
-        <div className="mt-16 space-y-8">
+        <div className="space-y-8">
           {/* Card 1: What is Web Hosting? */}
           <article className="bg-gradient-to-b from-[#BFFF00] to-[#80FF00] rounded-lg p-8">
             <div className="flex items-start gap-4">

@@ -5,7 +5,7 @@ import { NetworkIcon, BookmarkIcon } from "../components/PixelIcon";
 function DnsPage(): React.ReactElement {
   return (
     <main className="relative w-full min-h-screen bg-black overflow-x-hidden">
-      {/* Header with subtle gradient */}
+      {/* Header with gradient */}
       <header className="relative w-full py-8 px-8 bg-gradient-to-r from-[#4A4AFF] via-[#0000FF] to-[#BFFF00]">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
@@ -44,25 +44,35 @@ function DnsPage(): React.ReactElement {
       </header>
 
       {/* Background Pixel Art Decorations */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Blue L-shaped block */}
-        <div className="absolute top-[200px] left-[800px] w-32 h-32 bg-[#4A4AFF] opacity-50" />
-        {/* Blue smaller block */}
-        <div className="absolute top-[300px] left-[1000px] w-16 h-16 bg-[#4A4AFF] opacity-50" />
-        {/* Lime green fragmented pattern */}
-        <div className="absolute top-[400px] right-[200px] w-24 h-24 bg-[#BFFF00] opacity-50" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Large blue L-shaped block */}
+        <div className="absolute top-[250px] left-[800px] w-40 h-40 bg-[#4A4AFF] opacity-60" />
+        <div className="absolute top-[250px] left-[800px] w-20 h-40 bg-[#4A4AFF] opacity-60" />
+        <div className="absolute top-[250px] left-[800px] w-40 h-20 bg-[#4A4AFF] opacity-60" />
+        
+        {/* Smaller blue block */}
+        <div className="absolute top-[350px] left-[1000px] w-24 h-24 bg-[#4A4AFF] opacity-60" />
+        
+        {/* Complex lime green fragmented pattern (X/star shape) */}
+        <div className="absolute top-[450px] right-[200px] w-32 h-32">
+          <div className="absolute top-0 left-0 w-16 h-16 bg-[#BFFF00] opacity-60" />
+          <div className="absolute top-0 right-0 w-16 h-16 bg-[#BFFF00] opacity-60" />
+          <div className="absolute bottom-0 left-0 w-16 h-16 bg-[#BFFF00] opacity-60" />
+          <div className="absolute bottom-0 right-0 w-16 h-16 bg-[#BFFF00] opacity-60" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[#BFFF00] opacity-60" />
+        </div>
       </div>
 
       {/* Main Content */}
       <div className="relative max-w-7xl mx-auto px-8 py-12 z-10">
-        {/* Main Title */}
+        {/* Main Title - DNS & Servers on same line */}
         <h1 className="mb-16 [font-family:'Funnel_Display-Bold',Helvetica] font-bold text-8xl leading-tight">
           <span className="text-white">DNS</span>
           <span className="text-[#4A4AFF]">&</span>
           <span className="text-white"> Servers</span>
         </h1>
 
-        {/* Content Blocks */}
+        {/* Content Blocks - Slightly indented to the right */}
         <div className="space-y-8 ml-16">
           {/* Block 1: What is DNS? */}
           <article className="bg-[#AFFF33] rounded-lg p-8">
@@ -140,10 +150,10 @@ function DnsPage(): React.ReactElement {
             </div>
           </article>
         </div>
-      </div>
+    </div>
 
       {/* Footer */}
-      <footer className="relative w-full py-8 flex items-center justify-center">
+      <footer className="relative w-full py-8 flex items-center justify-center z-10">
         <NetworkIcon color="white" size={32} />
       </footer>
     </main>
