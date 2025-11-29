@@ -7,17 +7,57 @@ function HomePage(): React.ReactElement {
       {/* Desktop - 5: Main Container */}
       <div className="relative w-[1440px] h-[4776px] bg-white mx-auto">
         
-        {/* Header Background - Radial Gradient with inset shadow */}
+        {/* Header Background - SVG with diamond gradient and filter */}
         <div 
-          className="absolute w-[1440px] h-[703px] left-0 top-0"
+          className="absolute"
           style={{
+            position: 'absolute',
+            left: '0px',
+            top: '0px',
+            width: '1440px',
+            height: '703px',
+            borderRadius: '0px',
+            border: '1px solid #A9FF47',
             boxSizing: 'border-box',
             background: 'radial-gradient(ellipse farthest-corner, #2F00FF 54.12%, #A9FF47 96.63%)',
             boxShadow: 'inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
             transform: 'rotate(180deg)',
             transformOrigin: 'center center'
           }}
-        />
+        >
+          <svg width="1440" height="703" viewBox="0 0 1440 703" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+            <g filter="url(#filter0_i_248_2)">
+              <g clipPath="url(#paint0_diamond_248_2_clip_path)">
+                <g transform="matrix(-0.87 -4.65748e-09 4.36644e-09 -0.87 423 333.5)">
+                  <rect x="0" y="0" width="1170.11" height="425.862" fill="url(#paint0_diamond_248_2)" opacity="1" shapeRendering="crispEdges"/>
+                  <rect x="0" y="0" width="1170.11" height="425.862" transform="scale(1 -1)" fill="url(#paint0_diamond_248_2)" opacity="1" shapeRendering="crispEdges"/>
+                  <rect x="0" y="0" width="1170.11" height="425.862" transform="scale(-1 1)" fill="url(#paint0_diamond_248_2)" opacity="1" shapeRendering="crispEdges"/>
+                  <rect x="0" y="0" width="1170.11" height="425.862" transform="scale(-1)" fill="url(#paint0_diamond_248_2)" opacity="1" shapeRendering="crispEdges"/>
+                </g>
+              </g>
+              <rect x="1440" y="703" width="1440" height="703" transform="rotate(-180 1440 703)"/>
+            </g>
+            <defs>
+              <filter id="filter0_i_248_2" x="-0.00012207" y="0" width="1440" height="707" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_248_2"/>
+              </filter>
+              <clipPath id="paint0_diamond_248_2_clip_path">
+                <rect x="1440" y="703" width="1440" height="703" transform="rotate(-180 1440 703)"/>
+              </clipPath>
+              <linearGradient id="paint0_diamond_248_2" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+                <stop offset="0.541215" stopColor="#2F00FF"/>
+                <stop offset="0.966346" stopColor="#A9FF47"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
 
         {/* Logo - Group 18 SVG */}
         <div className="absolute w-[217px] h-[89px] left-[46px] top-[19px]">
@@ -158,7 +198,11 @@ function HomePage(): React.ReactElement {
         />
 
         {/* Rectangle 36: Black Section */}
-        <div className="absolute w-[1440px] h-[742px] left-0 top-[703px] bg-black" />
+        <div className="absolute w-[1440px] h-[742px] left-0 top-[703px]">
+          <svg width="1440" height="742" viewBox="0 0 1440 742" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+            <rect width="1440" height="742" fill="black"/>
+          </svg>
+        </div>
 
         {/* Text Block 1 */}
         <p 
@@ -497,9 +541,20 @@ function HomePage(): React.ReactElement {
         <div 
           className="absolute left-0 top-[3070px] w-[1440px] h-[69.26px]"
           style={{
+            borderRadius: '0px',
             background: 'radial-gradient(circle, #000000 29.32%, #000000 100%)'
           }}
-        />
+        >
+          <svg width="1440" height="70" viewBox="0 0 1440 70" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+            <rect width="1440" height="69.259" fill="url(#paint0_radial_208_1141)"/>
+            <defs>
+              <radialGradient id="paint0_radial_208_1141" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1176.75 35.2164) scale(834.75 217.755)">
+                <stop offset="0.293167"/>
+                <stop offset="1"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
 
         {/* Footer white squares */}
         <div className="absolute w-[6.92px] h-[6.48px] left-[726.77px] top-[3095.02px] bg-white" />
