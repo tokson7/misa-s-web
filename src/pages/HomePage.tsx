@@ -25,7 +25,7 @@ function HomePage(): React.ReactElement {
             transformOrigin: 'center center'
           }}
         >
-          <svg width="1440" height="703" viewBox="0 0 1440 703" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+          <svg width="1440" height="703" viewBox="0 0 1440 703" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_i_248_2)">
               <g clipPath="url(#paint0_diamond_248_2_clip_path)">
                 <g transform="matrix(-0.87 -4.65748e-09 4.36644e-09 -0.87 423 333.5)">
