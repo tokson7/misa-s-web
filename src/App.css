@@ -16,49 +16,65 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Navigation link styles - Premium UI/UX with perfect legibility */
+/* Navigation link styles - Single layer, no ghosting, clean blue text */
 .nav-item {
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  text-shadow: none !important; /* No shadows to prevent blurring */
-  filter: none !important;
+  text-shadow: none !important; /* CRITICAL: No shadows - single layer only */
+  filter: none !important; /* No filters that could create ghosting */
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
   text-rendering: optimizeLegibility !important;
-  /* Ensure crisp rendering */
+  /* Ensure crisp, single-layer rendering */
   image-rendering: -webkit-optimize-contrast !important;
   image-rendering: crisp-edges !important;
+  /* Prevent any duplicate rendering */
+  isolation: isolate !important;
+  will-change: auto !important;
+  backface-visibility: visible !important;
+  /* CRITICAL: Remove any pseudo-elements that could create duplicate text */
+}
+
+/* Ensure no pseudo-elements create duplicate text layers */
+.nav-item::before,
+.nav-item::after {
+  content: none !important;
+  display: none !important;
 }
 
 .nav-item:focus {
   outline: none !important;
   box-shadow: none !important;
+  text-shadow: none !important; /* No shadow on focus */
 }
 
 .nav-item:focus-visible {
   outline: none !important;
   box-shadow: none !important;
+  text-shadow: none !important;
 }
 
 .nav-item:active {
   outline: none !important;
   box-shadow: none !important;
+  text-shadow: none !important; /* No shadow on active */
 }
 
 .nav-item:hover {
   color: #FFFFFF !important;
-  /* Subtle shadow only on hover for depth, not overlapping */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  text-shadow: none !important; /* CRITICAL: No shadow on hover - single layer only */
+  filter: none !important; /* No filters */
 }
 
 .nav-item.active {
-  color: #1A1A1A !important; /* primary.main - high contrast */
+  color: #3B82F6 !important; /* accent.main - clean blue, single layer */
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
   text-decoration-thickness: 2px !important; /* Crisp underline */
-  text-decoration-color: #1A1A1A !important;
+  text-decoration-color: #3B82F6 !important; /* Blue underline */
+  text-shadow: none !important; /* No shadow on active state */
 }
 
 .logo {
