@@ -4,14 +4,16 @@ import desktop5Complete from "../assets/desktop5/desktop-5-complete.svg";
 
 function HomePage(): React.ReactElement {
   return (
-    <main className="bg-white overflow-hidden w-full min-w-[1440px] relative">
-      {/* Complete Desktop 5 SVG from Figma - pixel perfect */}
-      <img
-        src={desktop5Complete}
-        alt="How the Internet Works"
-        className="w-full h-auto"
-        style={{ display: "block" }}
-      />
+    <main className="bg-white overflow-hidden w-full min-w-[1440px] relative" style={{ height: "1445px" }}>
+      {/* Complete Desktop 5 SVG from Figma - cropped to end after black line */}
+      <div className="relative w-full" style={{ height: "1445px", overflow: "hidden" }}>
+        <img
+          src={desktop5Complete}
+          alt="How the Internet Works"
+          className="absolute top-0 left-0 w-full"
+          style={{ display: "block", height: "auto", maxHeight: "1445px", objectFit: "none", objectPosition: "top left" }}
+        />
+      </div>
 
       {/* Navigation Links - positioned over the SVG to maintain interactivity */}
       <nav
