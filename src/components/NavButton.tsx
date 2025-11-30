@@ -48,6 +48,9 @@ const NavButton: React.FC<NavButtonProps> = ({
         display: "flex",
         alignItems: "center",
         textDecoration: "none",
+        boxShadow: "none",
+        filter: "none",
+        textShadow: "none",
       }}
       aria-label={label}
       onMouseEnter={() => setIsHovered(true)}
@@ -60,9 +63,22 @@ const NavButton: React.FC<NavButtonProps> = ({
         viewBox={viewBox}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ width: "100%", height: "100%" }}
+        style={{ 
+          width: "100%", 
+          height: "100%",
+          filter: "none",
+          boxShadow: "none",
+        }}
       >
-        <path d={svgPath} fill={fillColor} style={{ transition: "fill 0.2s ease" }} />
+        <path 
+          d={svgPath} 
+          fill={fillColor} 
+          style={{ 
+            transition: "fill 0.2s ease",
+            filter: "none",
+            textShadow: "none",
+          }} 
+        />
       </svg>
     </Link>
   );
