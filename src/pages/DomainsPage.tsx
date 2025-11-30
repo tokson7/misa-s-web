@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import desktop8FigmaExport from "../assets/desktop8/desktop-8-figma-export.svg";
+import desktop8Complete from "../assets/desktop8/desktop-8-complete.svg";
 import Navbar from "../components/Navbar";
 
 function DomainsPage(): React.ReactElement {
@@ -33,7 +33,7 @@ function DomainsPage(): React.ReactElement {
         }}
       >
         <img
-          src={desktop8FigmaExport}
+          src={desktop8Complete}
           alt="Domain and IP"
           style={{
             display: "block",

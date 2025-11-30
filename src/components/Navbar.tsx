@@ -6,9 +6,10 @@ interface NavItemProps {
   label: string;
   top: string;
   left: string;
+  fontSize?: string; // Optional font size to match exact SVG dimensions
 }
 
-const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
+const NavItem = memo<NavItemProps>(({ to, label, top, left, fontSize = "12px" }) => {
   const location = useLocation();
   const isActive = 
     (to === "/" && location.pathname === "/") ||
@@ -24,17 +25,17 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         left,
         fontFamily: "'Inter', sans-serif",
         fontWeight: 600,
-        fontSize: "1rem", // base size (16px) - matches SVG text rendering
-        color: "#0000CB", // EXACT color from SVG files - single layer blue
-        letterSpacing: "0.01em",
-        lineHeight: 1.2, // Tighter line height to match SVG text
+        fontSize: fontSize, // EXACT size from desktop SVG files (12px for Domain/DNS, 15px for Web Hosting)
+        color: "#000000", // EXACT color from desktop SVG files - fill="black"
+        letterSpacing: "0em", // No letter spacing to match SVG exactly
+        lineHeight: 1, // Exact line height to match SVG text rendering
         textShadow: "none", // CRITICAL: No shadows - single layer only (as per SVG)
         filter: "none", // No filters that could cause ghosting
         opacity: 1, // Full opacity - no transparency layers
         textDecoration: isActive ? "underline" : "none",
         textUnderlineOffset: isActive ? "4px" : "0px",
         textDecorationThickness: isActive ? "2px" : "0px",
-        textDecorationColor: "#0000CB", // Blue underline to match SVG text color
+        textDecorationColor: "#000000", // Black underline to match SVG text color
         transition: "color 0.15s linear, text-decoration 0.15s linear",
         cursor: "pointer",
         zIndex: 9999, // Very high z-index to ensure it's above SVG
@@ -57,7 +58,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         e.currentTarget.style.textShadow = "none"; // No shadow on hover
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "#0000CB"; // EXACT SVG color - single layer blue
+        e.currentTarget.style.color = "#000000"; // EXACT color from desktop SVG - fill="black"
         e.currentTarget.style.textShadow = "none"; // No shadow ever
       }}
       onFocus={(e) => {
@@ -65,7 +66,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         e.currentTarget.style.textShadow = "none";
       }}
       onBlur={(e) => {
-        e.currentTarget.style.color = "#0000CB"; // EXACT SVG color - single layer blue
+        e.currentTarget.style.color = "#000000"; // EXACT color from desktop SVG - fill="black"
         e.currentTarget.style.textShadow = "none";
       }}
     >
@@ -75,8 +76,10 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
 });
 
 const Navbar = memo(() => {
-  // Navigation menu styled to match exact SVG files (domain-and-ip.svg, dns-and-server.svg, web-hosting.svg)
-  // Color: #0000CB (exact from SVG), single-layer rendering, no shadows or ghosting
+  // Navigation menu styled to match EXACT desktop SVG files
+  // Colors: fill="black" (#000000) from desktop SVG files
+  // Sizes: Domain and IP (114x12px), DNS and Server (123x12px), Web Hosting (100x15px)
+  // Single-layer rendering, no shadows or ghosting
   return (
     <nav
       style={{
@@ -107,6 +110,7 @@ const Navbar = memo(() => {
         label="Web Hosting"
         top="0"
         left="1270px"
+        fontSize="15px" // Web Hosting SVG is 100x15px, so 15px font size
       />
     </nav>
   );

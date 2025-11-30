@@ -34,8 +34,8 @@ html, body {
   isolation: isolate !important;
   will-change: auto !important;
   backface-visibility: visible !important;
-  /* CRITICAL: EXACT color from navigation SVG files - single layer blue */
-  color: #0000CB !important; /* EXACT color from SVG files (#0000CB) - single layer, no overlapping */
+  /* CRITICAL: EXACT color from desktop SVG files - single layer black */
+  color: #000000 !important; /* EXACT color from desktop SVG files (fill="black") - single layer, no overlapping */
   /* Ensure it's above all SVG content */
   position: relative !important;
   z-index: 9999 !important;
@@ -76,11 +76,11 @@ html, body {
 }
 
 .nav-item.active {
-  color: #0000CB !important; /* EXACT color from SVG files - single layer blue */
+  color: #000000 !important; /* EXACT color from desktop SVG files - single layer black */
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
   text-decoration-thickness: 2px !important; /* Crisp underline */
-  text-decoration-color: #0000CB !important; /* Blue underline to match SVG */
+  text-decoration-color: #000000 !important; /* Black underline to match SVG */
   text-shadow: none !important; /* No shadow on active state */
 }
 

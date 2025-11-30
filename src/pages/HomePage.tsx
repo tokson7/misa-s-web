@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import desktop5Complete from "../assets/desktop5/desktop5-complete.svg";
+import desktop5Complete from "../assets/desktop5/desktop-5-complete.svg";
 import Navbar from "../components/Navbar";
 
 function HomePage(): React.ReactElement {

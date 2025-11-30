@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import desktop7FigmaExport from "../assets/desktop7/desktop-7-figma-export.svg";
+import desktop7Complete from "../assets/desktop7/desktop-7-complete.svg";
 import Navbar from "../components/Navbar";
 
 function DnsPage(): React.ReactElement {
@@ -33,7 +33,7 @@ function DnsPage(): React.ReactElement {
         }}
       >
         <img
-          src={desktop7FigmaExport}
+          src={desktop7Complete}
           alt="DNS and Server"
           style={{
             display: "block",

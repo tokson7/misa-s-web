@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import desktop6FigmaExport from "../assets/desktop6/desktop-6-figma-export.svg";
+import desktop6Complete from "../assets/desktop6/desktop-6-complete.svg";
 import Navbar from "../components/Navbar";
 
 function HostingPage(): React.ReactElement {
@@ -33,7 +33,7 @@ function HostingPage(): React.ReactElement {
         }}
       >
         <img
-          src={desktop6FigmaExport}
+          src={desktop6Complete}
           alt="Web Hosting"
           style={{
             display: "block",
