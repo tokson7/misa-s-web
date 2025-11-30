@@ -26,7 +26,7 @@ import rectangle13 from "../assets/desktop5/rectangle-13.svg";
 import rectangle25 from "../assets/desktop5/rectangle-25.svg";
 import rectangle26 from "../assets/desktop5/rectangle-26.svg";
 import rectangle27 from "../assets/desktop5/rectangle-27.svg";
-import rectangle45 from "../assets/desktop5/rectangle-45.png";
+import rectangle45 from "../assets/desktop5/rectangle-45.svg";
 import vector2 from "../assets/desktop5/vector-2.svg";
 import vector3 from "../assets/desktop5/vector-3.svg";
 import vector4 from "../assets/desktop5/vector-4.svg";
