@@ -20,8 +20,10 @@ function HomePage(): React.ReactElement {
       {/* Complete Desktop 5 SVG from Figma - Pixel Perfect Exact Match */}
       <div 
         style={{
-          width: "1440px",
-          height: "4776px",
+          width: "100vw",
+          minWidth: "1440px",
+          height: "auto",
+          minHeight: "4776px",
           position: "relative",
           margin: 0,
           padding: 0,
@@ -35,17 +37,18 @@ function HomePage(): React.ReactElement {
           alt="How the Internet Works - Complete Desktop 5 Design"
           style={{
             display: "block",
-            width: "1440px",
-            height: "4776px",
-            position: "absolute",
+            width: "100%",
+            minWidth: "1440px",
+            height: "auto",
+            minHeight: "4776px",
+            position: "relative",
             top: "0px",
             left: "0px",
-            objectFit: "none",
-            objectPosition: "0 0",
+            objectFit: "fill",
+            objectPosition: "top left",
             pointerEvents: "none",
             margin: 0,
-            padding: 0,
-            imageRendering: "crisp-edges"
+            padding: 0
           }}
         />
       </div>
