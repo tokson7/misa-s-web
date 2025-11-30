@@ -24,25 +24,25 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         left,
         fontFamily: "'Inter', sans-serif",
         fontWeight: 600,
-        fontSize: "1rem", // base size (16px) for optimal readability
-        color: "#3B82F6", // accent.main - clean blue, single layer only
+        fontSize: "1rem", // base size (16px) for optimal readability - single layer only
+        color: "#1A1A1A", // primary.main - dark, almost black, single solid layer
         letterSpacing: "0.01em",
         lineHeight: 1.5, // Improved line height for readability
-        textShadow: "none", // Absolutely no shadows - single layer only
+        textShadow: "none", // CRITICAL: Absolutely no shadows - single layer only
         filter: "none", // No filters that could cause ghosting
         opacity: 1, // Full opacity - no transparency layers
         textDecoration: isActive ? "underline" : "none",
         textUnderlineOffset: isActive ? "4px" : "0px",
         textDecorationThickness: isActive ? "2px" : "0px",
-        textDecorationColor: "#3B82F6", // Blue underline to match text
+        textDecorationColor: "#1A1A1A", // Dark underline to match text
         transition: "color 0.15s linear, text-decoration 0.15s linear",
         cursor: "pointer",
-        zIndex: 11,
+        zIndex: 9999, // Very high z-index to ensure it's above SVG
         margin: 0,
         padding: "0.25rem 0.5rem", // Padding for better click area and spacing
         outline: "none",
         WebkitTapHighlightColor: "transparent",
-        backgroundColor: "transparent", // No background that could create layers
+        backgroundColor: "rgba(255, 255, 255, 0.01)", // Minimal background to cover SVG text underneath
         border: "none",
         boxShadow: "none", // No box shadows
         transform: "none", // No transforms that could duplicate
@@ -57,7 +57,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         e.currentTarget.style.textShadow = "none"; // No shadow on hover
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = isActive ? "#3B82F6" : "#3B82F6";
+        e.currentTarget.style.color = "#1A1A1A"; // Always dark color - single layer
         e.currentTarget.style.textShadow = "none"; // No shadow ever
       }}
       onFocus={(e) => {
@@ -65,7 +65,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         e.currentTarget.style.textShadow = "none";
       }}
       onBlur={(e) => {
-        e.currentTarget.style.color = isActive ? "#3B82F6" : "#3B82F6";
+        e.currentTarget.style.color = "#1A1A1A"; // Always dark color - single layer
         e.currentTarget.style.textShadow = "none";
       }}
     >
@@ -85,7 +85,7 @@ const Navbar = memo(() => {
         left: "0",
         width: "100%",
         height: "auto",
-        zIndex: 11,
+        zIndex: 9999, // Very high z-index to ensure it's above SVG
         pointerEvents: "none", // Allow clicks to pass through to children
       }}
       aria-label="Main navigation"

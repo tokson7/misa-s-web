@@ -16,13 +16,13 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Navigation link styles - Single layer, no ghosting, clean blue text */
+/* Navigation link styles - SINGLE LAYER ONLY: Dark text, no ghosting, no shadows */
 .nav-item {
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  text-shadow: none !important; /* CRITICAL: No shadows - single layer only */
+  text-shadow: none !important; /* CRITICAL: Absolutely no shadows - single layer only */
   filter: none !important; /* No filters that could create ghosting */
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
@@ -34,7 +34,13 @@ html, body {
   isolation: isolate !important;
   will-change: auto !important;
   backface-visibility: visible !important;
-  /* CRITICAL: Remove any pseudo-elements that could create duplicate text */
+  /* CRITICAL: Single solid text layer - primary.main color */
+  color: #1A1A1A !important; /* primary.main - dark, almost black, single layer */
+  /* Ensure it's above all SVG content */
+  position: relative !important;
+  z-index: 9999 !important;
+  /* Prevent any background from showing through */
+  mix-blend-mode: normal !important;
 }
 
 /* Ensure no pseudo-elements create duplicate text layers */
@@ -48,6 +54,7 @@ html, body {
   outline: none !important;
   box-shadow: none !important;
   text-shadow: none !important; /* No shadow on focus */
+  color: #FFFFFF !important; /* White on focus for visibility */
 }
 
 .nav-item:focus-visible {
@@ -63,17 +70,17 @@ html, body {
 }
 
 .nav-item:hover {
-  color: #FFFFFF !important;
+  color: #FFFFFF !important; /* White on hover for visibility */
   text-shadow: none !important; /* CRITICAL: No shadow on hover - single layer only */
   filter: none !important; /* No filters */
 }
 
 .nav-item.active {
-  color: #3B82F6 !important; /* accent.main - clean blue, single layer */
+  color: #1A1A1A !important; /* primary.main - dark, almost black, single layer */
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
   text-decoration-thickness: 2px !important; /* Crisp underline */
-  text-decoration-color: #3B82F6 !important; /* Blue underline */
+  text-decoration-color: #1A1A1A !important; /* Dark underline */
   text-shadow: none !important; /* No shadow on active state */
 }
 
