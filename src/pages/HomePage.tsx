@@ -5,24 +5,31 @@ import desktop5FigmaExport from "../assets/desktop5/desktop-5-figma-export.svg";
 function HomePage(): React.ReactElement {
   return (
     <main 
-      className="bg-white overflow-hidden w-full min-w-[1440px] relative" 
       style={{ 
-        width: "1440px",
-        height: "4776px",
+        width: "100vw",
+        minHeight: "100vh",
+        margin: 0,
+        padding: 0,
+        overflowX: "hidden",
+        overflowY: "auto",
         position: "relative",
         backgroundColor: "#FFFFFF"
       }}
     >
-      {/* Complete Desktop 5 SVG from Figma - Pixel Perfect */}
+      {/* Complete Desktop 5 SVG from Figma - Pixel Perfect Full Screen */}
       <div 
-        className="absolute top-0 left-0 w-full h-full"
         style={{
-          width: "1440px",
-          height: "4776px",
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          overflow: "hidden"
+          width: "100vw",
+          minWidth: "1440px",
+          height: "auto",
+          position: "relative",
+          margin: 0,
+          padding: 0,
+          overflow: "hidden",
+          backgroundColor: "#FFFFFF",
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "flex-start"
         }}
       >
         <img
@@ -30,14 +37,17 @@ function HomePage(): React.ReactElement {
           alt="How the Internet Works"
           style={{
             display: "block",
-            width: "1440px",
-            height: "4776px",
-            position: "absolute",
+            width: "100%",
+            minWidth: "1440px",
+            height: "auto",
+            position: "relative",
             top: "0px",
             left: "0px",
-            objectFit: "none",
+            objectFit: "fill",
             objectPosition: "top left",
-            pointerEvents: "none"
+            pointerEvents: "none",
+            margin: 0,
+            padding: 0
           }}
         />
       </div>
@@ -54,7 +64,9 @@ function HomePage(): React.ReactElement {
           height: "12px",
           opacity: 0,
           zIndex: 10,
-          cursor: "pointer"
+          cursor: "pointer",
+          margin: 0,
+          padding: 0
         }}
         aria-label="Domain and IP"
         onMouseEnter={(e) => {
@@ -78,7 +90,9 @@ function HomePage(): React.ReactElement {
           height: "12px",
           opacity: 0,
           zIndex: 10,
-          cursor: "pointer"
+          cursor: "pointer",
+          margin: 0,
+          padding: 0
         }}
         aria-label="DNS and Server"
         onMouseEnter={(e) => {
@@ -102,7 +116,9 @@ function HomePage(): React.ReactElement {
           height: "12px",
           opacity: 0,
           zIndex: 10,
-          cursor: "pointer"
+          cursor: "pointer",
+          margin: 0,
+          padding: 0
         }}
         aria-label="Web Hosting"
         onMouseEnter={(e) => {
@@ -126,7 +142,9 @@ function HomePage(): React.ReactElement {
           height: "54px",
           opacity: 0,
           zIndex: 10,
-          cursor: "pointer"
+          cursor: "pointer",
+          margin: 0,
+          padding: 0
         }}
         aria-label="Home"
         onMouseEnter={(e) => {
