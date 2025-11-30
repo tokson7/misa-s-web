@@ -52,6 +52,7 @@ const NavLink = memo<NavLinkProps>(({ to, label, top, left }) => {
 });
 
 const Navbar = memo(() => {
+  // Navigation menu: single blue color (#0000CB), no shadows, visible on all pages
   return (
     <nav
       className="navbar"
