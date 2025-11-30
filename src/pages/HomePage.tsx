@@ -17,20 +17,17 @@ function HomePage(): React.ReactElement {
         backgroundColor: "#FFFFFF"
       }}
     >
-      {/* Complete Desktop 5 SVG from Figma - Pixel Perfect Full Screen */}
+      {/* Complete Desktop 5 SVG from Figma - Pixel Perfect Exact Match */}
       <div 
         style={{
-          width: "100vw",
-          minWidth: "1440px",
-          height: "auto",
+          width: "1440px",
+          height: "4776px",
           position: "relative",
           margin: 0,
           padding: 0,
           overflow: "hidden",
           backgroundColor: "#FFFFFF",
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "flex-start"
+          display: "block"
         }}
       >
         <img
@@ -38,17 +35,17 @@ function HomePage(): React.ReactElement {
           alt="How the Internet Works - Complete Desktop 5 Design"
           style={{
             display: "block",
-            width: "100%",
-            minWidth: "1440px",
-            height: "auto",
-            position: "relative",
+            width: "1440px",
+            height: "4776px",
+            position: "absolute",
             top: "0px",
             left: "0px",
-            objectFit: "fill",
-            objectPosition: "top left",
+            objectFit: "none",
+            objectPosition: "0 0",
             pointerEvents: "none",
             margin: 0,
-            padding: 0
+            padding: 0,
+            imageRendering: "crisp-edges"
           }}
         />
       </div>
