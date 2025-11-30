@@ -26,7 +26,8 @@ const NavButton: React.FC<NavButtonProps> = ({
   const [isHovered, setIsHovered] = React.useState(false);
   
   const isActive = location.pathname === to || location.pathname.startsWith(to);
-  const fillColor = isActive || isHovered ? "#FFFFFF" : "#000000";
+  // Use exact color from SVG files: #0000CB (blue) for default, white for hover/active
+  const fillColor = isActive || isHovered ? "#FFFFFF" : "#0000CB";
 
   return (
     <Link
