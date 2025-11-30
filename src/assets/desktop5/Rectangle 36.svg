@@ -1,3 +1,9 @@
-<svg width="1440" height="742" viewBox="0 0 1440 742" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1440" height="742" fill="black"/>
+<svg width="1440" height="70" viewBox="0 0 1440 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="69.259" fill="url(#paint0_radial_208_1454)"/>
+<defs>
+<radialGradient id="paint0_radial_208_1454" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1176.75 35.2164) scale(834.75 217.755)">
+<stop offset="0.293167"/>
+<stop offset="1"/>
+</radialGradient>
+</defs>
 </svg>
