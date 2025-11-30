@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import desktop5FigmaExport from "../assets/desktop5/desktop-5-figma-export.svg";
+import desktop5Complete from "../assets/desktop5/desktop5-complete.svg";
 import NavButton from "../components/NavButton";
 
 function HomePage(): React.ReactElement {
-
-
   return (
     <main 
       style={{ 
@@ -36,8 +34,8 @@ function HomePage(): React.ReactElement {
         }}
       >
         <img
-          src={desktop5FigmaExport}
-          alt="How the Internet Works"
+          src={desktop5Complete}
+          alt="How the Internet Works - Complete Desktop 5 Design"
           style={{
             display: "block",
             width: "100%",
@@ -103,14 +101,6 @@ function HomePage(): React.ReactElement {
           padding: 0
         }}
         aria-label="Home"
-        onMouseEnter={(e) => {
-          e.currentTarget.style.opacity = "0.2";
-          e.currentTarget.style.backgroundColor = "#3B82F6";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.opacity = "0";
-          e.currentTarget.style.backgroundColor = "transparent";
-        }}
       />
     </main>
   );
