@@ -75,8 +75,8 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
 });
 
 const Navbar = memo(() => {
-  // Using original design positions with improved styling for perfect legibility
-  // Each item has proper padding and spacing to ensure clear distinction
+  // Navigation menu styled to match exact SVG files (domain-and-ip.svg, dns-and-server.svg, web-hosting.svg)
+  // Color: #0000CB (exact from SVG), single-layer rendering, no shadows or ghosting
   return (
     <nav
       style={{
