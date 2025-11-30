@@ -36,11 +36,16 @@ html, body {
   backface-visibility: visible !important;
   /* CRITICAL: EXACT color from desktop SVG files - single layer black */
   color: #000000 !important; /* EXACT color from desktop SVG files (fill="black") - single layer, no overlapping */
+  /* Force exact black color - no variations */
+  -webkit-text-stroke: none !important; /* Remove text stroke completely */
+  -webkit-text-fill-color: #000000 !important; /* Force exact black fill */
   /* Ensure it's above all SVG content */
   position: relative !important;
   z-index: 9999 !important;
   /* Prevent any background from showing through */
   mix-blend-mode: normal !important;
+  /* Ensure single layer rendering */
+  background-color: rgba(255, 255, 255, 0.001) !important; /* Minimal background to cover SVG text */
 }
 
 /* Ensure no pseudo-elements create duplicate text layers */
@@ -71,12 +76,16 @@ html, body {
 
 .nav-item:hover {
   color: #FFFFFF !important; /* White on hover for visibility */
+  -webkit-text-fill-color: #FFFFFF !important; /* Force white on hover */
   text-shadow: none !important; /* CRITICAL: No shadow on hover - single layer only */
   filter: none !important; /* No filters */
+  -webkit-text-stroke: none !important; /* No stroke on hover */
 }
 
 .nav-item.active {
   color: #000000 !important; /* EXACT color from desktop SVG files - single layer black */
+  -webkit-text-fill-color: #000000 !important; /* Force exact black fill */
+  -webkit-text-stroke: none !important; /* No stroke on active */
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
   text-decoration-thickness: 2px !important; /* Crisp underline */

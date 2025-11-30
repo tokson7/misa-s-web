@@ -43,7 +43,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left, fontSize = "12px" })
         padding: "0.25rem 0.5rem", // Padding for better click area and spacing
         outline: "none",
         WebkitTapHighlightColor: "transparent",
-        backgroundColor: "transparent", // Transparent - text itself will cover SVG with high z-index
+        backgroundColor: "rgba(255, 255, 255, 0.001)", // Minimal background to completely cover SVG text underneath
         border: "none",
         boxShadow: "none", // No box shadows
         transform: "none", // No transforms that could duplicate
@@ -51,6 +51,8 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left, fontSize = "12px" })
         display: "block", // Block display to ensure single rendering
         pointerEvents: "auto", // Re-enable clicks for links
         isolation: "isolate", // Create new stacking context to prevent overlap
+        WebkitTextStroke: "none", // Remove any text stroke that could create ghosting
+        WebkitTextFillColor: "#000000", // Force exact black fill color
       }}
       aria-label={label}
       onMouseEnter={(e) => {
