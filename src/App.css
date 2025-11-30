@@ -17,26 +17,38 @@ html, body {
 }
 
 /* Navigation link styles - remove all outlines and blue boxes */
-.nav-link {
+.nav-item {
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
-.nav-link:focus {
+.nav-item:focus {
   outline: none !important;
   box-shadow: none !important;
 }
 
-.nav-link:focus-visible {
+.nav-item:focus-visible {
   outline: none !important;
   box-shadow: none !important;
 }
 
-.nav-link:active {
+.nav-item:active {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.nav-item:hover {
+  color: #FFFFFF !important;
+}
+
+.nav-item.active {
+  color: #000000 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
 }
 
 .logo {
