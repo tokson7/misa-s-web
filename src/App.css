@@ -16,26 +16,26 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Navigation link styles - SINGLE LAYER ONLY: Dark text, no ghosting, no shadows */
+/* Navigation link styles - SINGLE LAYER ONLY: EXACT color from SVG files, no ghosting, no shadows */
 .nav-item {
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  text-shadow: none !important; /* CRITICAL: Absolutely no shadows - single layer only */
+  text-shadow: none !important; /* CRITICAL: Absolutely no shadows - single layer only (as per SVG) */
   filter: none !important; /* No filters that could create ghosting */
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
   text-rendering: optimizeLegibility !important;
-  /* Ensure crisp, single-layer rendering */
+  /* Ensure crisp, single-layer rendering matching SVG files */
   image-rendering: -webkit-optimize-contrast !important;
   image-rendering: crisp-edges !important;
   /* Prevent any duplicate rendering */
   isolation: isolate !important;
   will-change: auto !important;
   backface-visibility: visible !important;
-  /* CRITICAL: Single solid text layer - primary.main color */
-  color: #1A1A1A !important; /* primary.main - dark, almost black, single layer */
+  /* CRITICAL: EXACT color from navigation SVG files - single layer blue */
+  color: #0000CB !important; /* EXACT color from SVG files (#0000CB) - single layer, no overlapping */
   /* Ensure it's above all SVG content */
   position: relative !important;
   z-index: 9999 !important;
@@ -76,11 +76,11 @@ html, body {
 }
 
 .nav-item.active {
-  color: #1A1A1A !important; /* primary.main - dark, almost black, single layer */
+  color: #0000CB !important; /* EXACT color from SVG files - single layer blue */
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
   text-decoration-thickness: 2px !important; /* Crisp underline */
-  text-decoration-color: #1A1A1A !important; /* Dark underline */
+  text-decoration-color: #0000CB !important; /* Blue underline to match SVG */
   text-shadow: none !important; /* No shadow on active state */
 }
 

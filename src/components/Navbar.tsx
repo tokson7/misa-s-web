@@ -24,17 +24,17 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         left,
         fontFamily: "'Inter', sans-serif",
         fontWeight: 600,
-        fontSize: "1rem", // base size (16px) for optimal readability - single layer only
-        color: "#1A1A1A", // primary.main - dark, almost black, single solid layer
+        fontSize: "1rem", // base size (16px) - matches SVG text rendering
+        color: "#0000CB", // EXACT color from SVG files - single layer blue
         letterSpacing: "0.01em",
-        lineHeight: 1.5, // Improved line height for readability
-        textShadow: "none", // CRITICAL: Absolutely no shadows - single layer only
+        lineHeight: 1.2, // Tighter line height to match SVG text
+        textShadow: "none", // CRITICAL: No shadows - single layer only (as per SVG)
         filter: "none", // No filters that could cause ghosting
         opacity: 1, // Full opacity - no transparency layers
         textDecoration: isActive ? "underline" : "none",
         textUnderlineOffset: isActive ? "4px" : "0px",
         textDecorationThickness: isActive ? "2px" : "0px",
-        textDecorationColor: "#1A1A1A", // Dark underline to match text
+        textDecorationColor: "#0000CB", // Blue underline to match SVG text color
         transition: "color 0.15s linear, text-decoration 0.15s linear",
         cursor: "pointer",
         zIndex: 9999, // Very high z-index to ensure it's above SVG
@@ -57,7 +57,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         e.currentTarget.style.textShadow = "none"; // No shadow on hover
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "#1A1A1A"; // Always dark color - single layer
+        e.currentTarget.style.color = "#0000CB"; // EXACT SVG color - single layer blue
         e.currentTarget.style.textShadow = "none"; // No shadow ever
       }}
       onFocus={(e) => {
@@ -65,7 +65,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         e.currentTarget.style.textShadow = "none";
       }}
       onBlur={(e) => {
-        e.currentTarget.style.color = "#1A1A1A"; // Always dark color - single layer
+        e.currentTarget.style.color = "#0000CB"; // EXACT SVG color - single layer blue
         e.currentTarget.style.textShadow = "none";
       }}
     >
