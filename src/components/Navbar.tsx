@@ -42,7 +42,7 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left }) => {
         padding: "0.25rem 0.5rem", // Padding for better click area and spacing
         outline: "none",
         WebkitTapHighlightColor: "transparent",
-        backgroundColor: "rgba(255, 255, 255, 0.01)", // Minimal background to cover SVG text underneath
+        backgroundColor: "transparent", // Transparent - text itself will cover SVG with high z-index
         border: "none",
         boxShadow: "none", // No box shadows
         transform: "none", // No transforms that could duplicate
