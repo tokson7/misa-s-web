@@ -16,81 +16,57 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Navigation link styles - SINGLE LAYER ONLY: EXACT color from SVG files, no ghosting, no shadows */
-.nav-item {
+/* Navigation link styles - Single layer, crisp black, no ghosting */
+.nav-link {
+  font-family: 'Inter', sans-serif; /* Update with token if available */
+  font-weight: 700;
+  font-size: 12px; /* Base size - Web Hosting uses 15px via inline style */
+  line-height: 1;
+  letter-spacing: 0em;
+  color: #000000 !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  transition: color 120ms ease-in-out;
+  background: none !important;
+  display: inline-block;
+  transform: none !important;
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  text-shadow: none !important; /* CRITICAL: Absolutely no shadows - single layer only (as per SVG) */
-  filter: none !important; /* No filters that could create ghosting */
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  text-rendering: optimizeLegibility !important;
-  /* Ensure crisp, single-layer rendering matching SVG files */
-  image-rendering: -webkit-optimize-contrast !important;
-  image-rendering: crisp-edges !important;
-  /* Prevent any duplicate rendering */
-  isolation: isolate !important;
-  will-change: auto !important;
-  backface-visibility: visible !important;
-  /* CRITICAL: EXACT color from desktop SVG files - single layer black */
-  color: #000000 !important; /* EXACT color from desktop SVG files (fill="black") - single layer, no overlapping */
-  /* Force exact black color - no variations */
-  -webkit-text-stroke: none !important; /* Remove text stroke completely */
-  -webkit-text-fill-color: #000000 !important; /* Force exact black fill */
-  /* Ensure it's above all SVG content */
-  position: relative !important;
-  z-index: 9999 !important;
-  /* Prevent any background from showing through */
+  -webkit-text-stroke: none !important;
+  -webkit-text-fill-color: #000000 !important;
   mix-blend-mode: normal !important;
-  /* Ensure single layer rendering */
-  background-color: rgba(255, 255, 255, 0.001) !important; /* Minimal background to cover SVG text */
+  opacity: 1 !important;
 }
 
-/* Ensure no pseudo-elements create duplicate text layers */
-.nav-item::before,
-.nav-item::after {
+/* Remove any pseudo-elements */
+.nav-link::before,
+.nav-link::after {
   content: none !important;
   display: none !important;
 }
 
-.nav-item:focus {
+.nav-link:hover,
+.nav-link:focus {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   outline: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important; /* No shadow on focus */
-  color: #FFFFFF !important; /* White on focus for visibility */
+  text-shadow: none !important;
+  filter: none !important;
 }
 
-.nav-item:focus-visible {
+.nav-link:active {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   outline: none !important;
-  box-shadow: none !important;
   text-shadow: none !important;
 }
 
-.nav-item:active {
-  outline: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important; /* No shadow on active */
-}
-
-.nav-item:hover {
-  color: #FFFFFF !important; /* White on hover for visibility */
-  -webkit-text-fill-color: #FFFFFF !important; /* Force white on hover */
-  text-shadow: none !important; /* CRITICAL: No shadow on hover - single layer only */
-  filter: none !important; /* No filters */
-  -webkit-text-stroke: none !important; /* No stroke on hover */
-}
-
-.nav-item.active {
-  color: #000000 !important; /* EXACT color from desktop SVG files - single layer black */
-  -webkit-text-fill-color: #000000 !important; /* Force exact black fill */
-  -webkit-text-stroke: none !important; /* No stroke on active */
-  text-decoration: underline !important;
-  text-underline-offset: 4px !important;
-  text-decoration-thickness: 2px !important; /* Crisp underline */
-  text-decoration-color: #000000 !important; /* Black underline to match SVG */
-  text-shadow: none !important; /* No shadow on active state */
+.navbar {
+  background: transparent !important;
 }
 
 .logo {

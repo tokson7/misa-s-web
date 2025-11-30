@@ -1,76 +1,46 @@
 import { memo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-interface NavItemProps {
+interface NavLinkProps {
   to: string;
   label: string;
   top: string;
   left: string;
-  fontSize?: string; // Optional font size to match exact SVG dimensions
 }
 
-const NavItem = memo<NavItemProps>(({ to, label, top, left, fontSize = "12px" }) => {
-  const location = useLocation();
-  const isActive = 
-    (to === "/" && location.pathname === "/") ||
-    (to !== "/" && (location.pathname === to || location.pathname.startsWith(to + "/")));
-
+const NavLink = memo<NavLinkProps>(({ to, label, top, left }) => {
   return (
     <Link
       to={to}
-      className={`nav-item ${isActive ? "active" : ""}`}
+      className="nav-link"
       style={{
         position: "absolute",
         top,
         left,
-        fontFamily: "'Inter', sans-serif",
-        fontWeight: 600,
-        fontSize: fontSize, // EXACT size from desktop SVG files (12px for Domain/DNS, 15px for Web Hosting)
-        color: "#000000", // EXACT color from desktop SVG files - fill="black"
-        letterSpacing: "0em", // No letter spacing to match SVG exactly
-        lineHeight: 1, // Exact line height to match SVG text rendering
-        textShadow: "none", // CRITICAL: No shadows - single layer only (as per SVG)
-        filter: "none", // No filters that could cause ghosting
-        opacity: 1, // Full opacity - no transparency layers
-        textDecoration: isActive ? "underline" : "none",
-        textUnderlineOffset: isActive ? "4px" : "0px",
-        textDecorationThickness: isActive ? "2px" : "0px",
-        textDecorationColor: "#000000", // Black underline to match SVG text color
-        transition: "color 0.15s linear, text-decoration 0.15s linear",
-        cursor: "pointer",
-        zIndex: 9999, // Very high z-index to ensure it's above SVG
-        margin: 0,
-        padding: "0.25rem 0.5rem", // Padding for better click area and spacing
+        fontFamily: "'Inter', sans-serif", // Using Inter as fallback - update with token if available
+        fontWeight: 700,
+        fontSize: label === "Web Hosting" ? "15px" : "12px", // Web Hosting uses 15px per SVG dimensions
+        lineHeight: 1,
+        letterSpacing: "0em",
+        color: "#000000",
+        textShadow: "none",
+        filter: "none",
+        WebkitFontSmoothing: "antialiased",
+        textDecoration: "none",
+        transition: "color 120ms ease-in-out",
+        background: "none",
+        display: "inline-block",
+        transform: "none",
         outline: "none",
-        WebkitTapHighlightColor: "transparent",
-        backgroundColor: "rgba(255, 255, 255, 0.001)", // Minimal background to completely cover SVG text underneath
+        cursor: "pointer",
+        zIndex: 9999,
+        margin: 0,
+        padding: 0,
         border: "none",
-        boxShadow: "none", // No box shadows
-        transform: "none", // No transforms that could duplicate
-        whiteSpace: "nowrap", // Prevent text wrapping
-        display: "block", // Block display to ensure single rendering
-        pointerEvents: "auto", // Re-enable clicks for links
-        isolation: "isolate", // Create new stacking context to prevent overlap
-        WebkitTextStroke: "none", // Remove any text stroke that could create ghosting
-        WebkitTextFillColor: "#000000", // Force exact black fill color
+        boxShadow: "none",
+        whiteSpace: "nowrap",
       }}
       aria-label={label}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.color = "#FFFFFF";
-        e.currentTarget.style.textShadow = "none"; // No shadow on hover
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.color = "#000000"; // EXACT color from desktop SVG - fill="black"
-        e.currentTarget.style.textShadow = "none"; // No shadow ever
-      }}
-      onFocus={(e) => {
-        e.currentTarget.style.color = "#FFFFFF";
-        e.currentTarget.style.textShadow = "none";
-      }}
-      onBlur={(e) => {
-        e.currentTarget.style.color = "#000000"; // EXACT color from desktop SVG - fill="black"
-        e.currentTarget.style.textShadow = "none";
-      }}
     >
       {label}
     </Link>
@@ -78,46 +48,44 @@ const NavItem = memo<NavItemProps>(({ to, label, top, left, fontSize = "12px" })
 });
 
 const Navbar = memo(() => {
-  // Navigation menu styled to match EXACT desktop SVG files
-  // Colors: fill="black" (#000000) from desktop SVG files
-  // Sizes: Domain and IP (114x12px), DNS and Server (123x12px), Web Hosting (100x15px)
-  // Single-layer rendering, no shadows or ghosting
   return (
     <nav
+      className="navbar"
       style={{
         position: "absolute",
         top: "39px",
         left: "0",
         width: "100%",
         height: "auto",
-        zIndex: 9999, // Very high z-index to ensure it's above SVG
-        pointerEvents: "none", // Allow clicks to pass through to children
+        background: "transparent",
+        zIndex: 9999,
+        pointerEvents: "none",
       }}
       aria-label="Main navigation"
     >
-      <NavItem
+      <NavLink
         to="/domains"
         label="Domain and IP"
         top="0"
         left="918px"
       />
-      <NavItem
+      <NavLink
         to="/dns"
         label="DNS and Server"
         top="0"
         left="1091px"
       />
-      <NavItem
+      <NavLink
         to="/hosting"
         label="Web Hosting"
         top="0"
         left="1270px"
-        fontSize="15px" // Web Hosting SVG is 100x15px, so 15px font size
       />
     </nav>
   );
 });
 
 Navbar.displayName = "Navbar";
+NavLink.displayName = "NavLink";
 
 export default Navbar;
