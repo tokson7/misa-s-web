@@ -5,8 +5,8 @@ import NavButton from "../components/NavButton";
 
 function HomePage(): React.ReactElement {
   return (
-    <main 
-      style={{ 
+    <main
+      style={{
         width: "100vw",
         minHeight: "100vh",
         margin: 0,
@@ -48,7 +48,8 @@ function HomePage(): React.ReactElement {
             objectPosition: "top left",
             pointerEvents: "none",
             margin: 0,
-            padding: 0
+            padding: 0,
+            imageRendering: "crisp-edges"
           }}
         />
       </div>

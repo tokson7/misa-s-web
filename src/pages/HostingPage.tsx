@@ -6,7 +6,7 @@ import NavButton from "../components/NavButton";
 function HostingPage(): React.ReactElement {
   return (
     <main 
-      style={{ 
+      style={{
         width: "100vw",
         minHeight: "100vh",
         margin: 0,
@@ -23,14 +23,13 @@ function HostingPage(): React.ReactElement {
           width: "100vw",
           minWidth: "1440px",
           height: "auto",
+          minHeight: "1266px",
           position: "relative",
           margin: 0,
           padding: 0,
           overflow: "hidden",
           backgroundColor: "#FFFFFF",
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "flex-start"
+          display: "block"
         }}
       >
         <img
@@ -41,6 +40,7 @@ function HostingPage(): React.ReactElement {
             width: "100%",
             minWidth: "1440px",
             height: "auto",
+            minHeight: "1266px",
             position: "relative",
             top: "0px",
             left: "0px",
@@ -48,10 +48,11 @@ function HostingPage(): React.ReactElement {
             objectPosition: "top left",
             pointerEvents: "none",
             margin: 0,
-            padding: 0
+            padding: 0,
+            imageRendering: "crisp-edges"
           }}
         />
-      </div>
+    </div>
 
       {/* Navigation Links - positioned over the SVG to maintain interactivity */}
       {/* Logo Link */}
