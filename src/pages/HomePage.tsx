@@ -1,47 +1,142 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import desktop5Complete from "../assets/desktop5/desktop-5-complete.svg";
+import desktop5FigmaExport from "../assets/desktop5/desktop-5-figma-export.svg";
 
 function HomePage(): React.ReactElement {
   return (
-    <main className="bg-white overflow-hidden w-full min-w-[1440px] relative" style={{ height: "1445px" }}>
-      {/* Complete Desktop 5 SVG from Figma - cropped to end after black line */}
-      <div className="relative w-full" style={{ height: "1445px", overflow: "hidden" }}>
+    <main 
+      className="bg-white overflow-hidden w-full min-w-[1440px] relative" 
+      style={{ 
+        width: "1440px",
+        height: "4776px",
+        position: "relative",
+        backgroundColor: "#FFFFFF"
+      }}
+    >
+      {/* Complete Desktop 5 SVG from Figma - Pixel Perfect */}
+      <div 
+        className="absolute top-0 left-0 w-full h-full"
+        style={{
+          width: "1440px",
+          height: "4776px",
+          position: "absolute",
+          top: "0px",
+          left: "0px",
+          overflow: "hidden"
+        }}
+      >
         <img
-          src={desktop5Complete}
+          src={desktop5FigmaExport}
           alt="How the Internet Works"
-          className="absolute top-0 left-0 w-full"
-          style={{ display: "block", height: "auto", maxHeight: "1445px", objectFit: "none", objectPosition: "top left" }}
+          style={{
+            display: "block",
+            width: "1440px",
+            height: "4776px",
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            objectFit: "none",
+            objectPosition: "top left",
+            pointerEvents: "none"
+          }}
         />
       </div>
 
       {/* Navigation Links - positioned over the SVG to maintain interactivity */}
-      <nav
-        className="absolute top-[39px] left-[784px] flex gap-[177px]"
-        aria-label="Main navigation"
-      >
-        <Link
-          to="/domains"
-          className="absolute left-[0px] top-0 w-[114px] h-[12px] opacity-0 hover:opacity-20 hover:bg-blue-500 transition-opacity"
-          aria-label="Domain and IP"
-        />
-        <Link
-          to="/dns"
-          className="absolute left-[177px] top-0 w-[114px] h-[12px] opacity-0 hover:opacity-20 hover:bg-blue-500 transition-opacity"
-          aria-label="DNS and Server"
-        />
-        <Link
-          to="/hosting"
-          className="absolute left-[342px] top-0 w-[114px] h-[12px] opacity-0 hover:opacity-20 hover:bg-blue-500 transition-opacity"
-          aria-label="Web Hosting"
-        />
-      </nav>
+      {/* Domain and IP Link */}
+      <Link
+        to="/domains"
+        style={{
+          position: "absolute",
+          top: "39px",
+          left: "784px",
+          width: "114px",
+          height: "12px",
+          opacity: 0,
+          zIndex: 10,
+          cursor: "pointer"
+        }}
+        aria-label="Domain and IP"
+        onMouseEnter={(e) => {
+          e.currentTarget.style.opacity = "0.2";
+          e.currentTarget.style.backgroundColor = "#3B82F6";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.opacity = "0";
+          e.currentTarget.style.backgroundColor = "transparent";
+        }}
+      />
+
+      {/* DNS and Server Link */}
+      <Link
+        to="/dns"
+        style={{
+          position: "absolute",
+          top: "39px",
+          left: "961px",
+          width: "114px",
+          height: "12px",
+          opacity: 0,
+          zIndex: 10,
+          cursor: "pointer"
+        }}
+        aria-label="DNS and Server"
+        onMouseEnter={(e) => {
+          e.currentTarget.style.opacity = "0.2";
+          e.currentTarget.style.backgroundColor = "#3B82F6";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.opacity = "0";
+          e.currentTarget.style.backgroundColor = "transparent";
+        }}
+      />
+
+      {/* Web Hosting Link */}
+      <Link
+        to="/hosting"
+        style={{
+          position: "absolute",
+          top: "39px",
+          left: "1126px",
+          width: "114px",
+          height: "12px",
+          opacity: 0,
+          zIndex: 10,
+          cursor: "pointer"
+        }}
+        aria-label="Web Hosting"
+        onMouseEnter={(e) => {
+          e.currentTarget.style.opacity = "0.2";
+          e.currentTarget.style.backgroundColor = "#3B82F6";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.opacity = "0";
+          e.currentTarget.style.backgroundColor = "transparent";
+        }}
+      />
 
       {/* Logo Link */}
       <Link
         to="/"
-        className="absolute top-0 left-[46px] w-[217px] h-[54px] opacity-0 hover:opacity-20 hover:bg-blue-500 transition-opacity"
+        style={{
+          position: "absolute",
+          top: "0px",
+          left: "46px",
+          width: "217px",
+          height: "54px",
+          opacity: 0,
+          zIndex: 10,
+          cursor: "pointer"
+        }}
         aria-label="Home"
+        onMouseEnter={(e) => {
+          e.currentTarget.style.opacity = "0.2";
+          e.currentTarget.style.backgroundColor = "#3B82F6";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.opacity = "0";
+          e.currentTarget.style.backgroundColor = "transparent";
+        }}
       />
     </main>
   );
