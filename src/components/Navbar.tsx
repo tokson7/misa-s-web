@@ -22,23 +22,27 @@ const NavLink = memo<NavLinkProps>(({ to, label, top, left }) => {
         fontSize: label === "Web Hosting" ? "15px" : "12px", // Web Hosting uses 15px per SVG dimensions
         lineHeight: 1,
         letterSpacing: "0em",
-        color: "#000000",
-        textShadow: "none",
-        filter: "none",
+        color: "#0000CB", // Blue color from navigation SVG files for visibility
+        textShadow: "none !important",
+        filter: "none !important",
         WebkitFontSmoothing: "antialiased",
         textDecoration: "none",
         transition: "color 120ms ease-in-out",
-        background: "none",
+        background: "transparent",
         display: "inline-block",
         transform: "none",
         outline: "none",
         cursor: "pointer",
-        zIndex: 9999,
+        zIndex: 10000, // Higher z-index to ensure visibility
         margin: 0,
         padding: 0,
         border: "none",
         boxShadow: "none",
         whiteSpace: "nowrap",
+        WebkitTextStroke: "none",
+        WebkitTextFillColor: "#0000CB", // Force blue color
+        opacity: 1,
+        visibility: "visible",
       }}
       aria-label={label}
     >
@@ -58,7 +62,7 @@ const Navbar = memo(() => {
         width: "100%",
         height: "auto",
         background: "transparent",
-        zIndex: 9999,
+        zIndex: 10000, // Higher z-index to ensure visibility
         pointerEvents: "none",
       }}
       aria-label="Main navigation"

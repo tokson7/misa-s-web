@@ -23,23 +23,25 @@ html, body {
   font-size: 12px; /* Base size - Web Hosting uses 15px via inline style */
   line-height: 1;
   letter-spacing: 0em;
-  color: #000000 !important;
+  color: #0000CB !important; /* Blue color from SVG files for visibility */
   text-shadow: none !important;
   filter: none !important;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
   transition: color 120ms ease-in-out;
-  background: none !important;
-  display: inline-block;
+  background: transparent !important;
+  display: inline-block !important;
   transform: none !important;
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
   -webkit-text-stroke: none !important;
-  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-fill-color: #0000CB !important; /* Force blue color */
   mix-blend-mode: normal !important;
   opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10000 !important;
 }
 
 /* Remove any pseudo-elements */
@@ -56,6 +58,7 @@ html, body {
   outline: none !important;
   text-shadow: none !important;
   filter: none !important;
+  -webkit-text-stroke: none !important;
 }
 
 .nav-link:active {
