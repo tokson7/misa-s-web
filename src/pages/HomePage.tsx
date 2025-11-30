@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Import images - these should be placed in src/assets/desktop5/
-import group2 from "../assets/desktop5/group-2.png";
-import group18 from "../assets/desktop5/group-18.png";
-import group from "../assets/desktop5/group.png";
+import group2 from "../assets/desktop5/group-2.svg";
+import group18 from "../assets/desktop5/group-18.svg";
+import group from "../assets/desktop5/group.svg";
 import image12 from "../assets/desktop5/image-1-2.png";
 import image13 from "../assets/desktop5/image-1-3.png";
 import image14 from "../assets/desktop5/image-1-4.png";
@@ -44,6 +44,18 @@ import vector18 from "../assets/desktop5/vector-18.svg";
 import vector19 from "../assets/desktop5/vector-19.svg";
 import vector20 from "../assets/desktop5/vector-20.svg";
 import vector from "../assets/desktop5/vector.svg";
+// Import text SVGs from Figma
+import howInternetWorksSvg from "../assets/desktop5/How the Internet works_.svg";
+import domainAndIPSvg from "../assets/desktop5/Domain and IP.svg";
+import dnsAndServerSvg from "../assets/desktop5/DNS and Server.svg";
+import webHostingSvg from "../assets/desktop5/Web Hosting.svg";
+import internetGlobalNetworkSvg from "../assets/desktop5/The Internet is a global network of computers that communicate with each other using protocols..svg";
+import everyDeviceSvg from "../assets/desktop5/Every device connected to the Internet can send and receive information. When you visit a website, your computer sends a request to a server, and the server sends back the webpage..svg";
+import dataTravelsSvg from "../assets/desktop5/Data travels in small units called packets, which move through routers and networks to reach their destination..svg";
+import ifYouOpenBrowserSvg from "../assets/desktop5/If you open your browser and type a website address, your request travels from your computer.svg";
+import arrowHomeRouterSvg from "../assets/desktop5/→ your home router.svg";
+import arrowBackToComputerSvg from "../assets/desktop5/→ back to your computer.svg";
+import arrowServerHostsWebsiteSvg from "../assets/desktop5/→ the server that hosts the website.svg";
 
 const phoneCarousels = [
   {
@@ -76,9 +88,9 @@ const phoneCarousels = [
 ];
 
 const navigationItems = [
-  { id: 1, text: "Domain and IP", left: "784px", path: "/domains" },
-  { id: 2, text: "DNS and Server", left: "961px", path: "/dns" },
-  { id: 3, text: "Web Hosting", left: "1126px", path: "/hosting" },
+  { id: 1, text: "Domain and IP", left: "784px", path: "/domains", svg: domainAndIPSvg },
+  { id: 2, text: "DNS and Server", left: "961px", path: "/dns", svg: dnsAndServerSvg },
+  { id: 3, text: "Web Hosting", left: "1126px", path: "/hosting", svg: webHostingSvg },
 ];
 
 const computerIcons = [
@@ -105,12 +117,11 @@ function HomePage(): React.ReactElement {
         src={rectangle25}
       />
 
-      <div
-        className="absolute top-[2145px] left-[488px] w-[422px] [font-family:'Funnel_Sans-Regular',Helvetica] font-normal text-black text-[32px] tracking-[0] leading-[normal]"
-        aria-label="Arrow pointing to your home router"
-      >
-        → your home router
-      </div>
+      <img
+        className="absolute top-[2145px] left-[488px]"
+        alt="Arrow pointing to your home router"
+        src={arrowHomeRouterSvg}
+      />
 
       <div
         className="absolute top-[703px] left-0 w-[1440px] h-[742px] bg-black"
@@ -137,10 +148,13 @@ function HomePage(): React.ReactElement {
           <Link
             key={item.id}
             to={item.path}
-            className="w-[382px] [font-family:'Funnel_Display-ExtraBold',Helvetica] font-extrabold text-black text-base text-center tracking-[0] leading-[normal]"
             style={{ position: "absolute", left: item.left, top: 0 }}
           >
-            {item.text}
+            <img
+              src={item.svg}
+              alt={item.text}
+              className="h-auto"
+            />
           </Link>
         ))}
       </nav>
@@ -194,35 +208,29 @@ function HomePage(): React.ReactElement {
         />
       </Link>
 
-      <h1 className="absolute top-[617px] left-[100px] w-[917px] [font-family:'Funnel_Display-Bold',Helvetica] font-bold text-transparent text-8xl tracking-[0] leading-[100px]">
-        <span className="text-white">
-          How
-          <br />
-        </span>
-        <span className="text-[#0000cb]">
-          the Internet
-          <br />
-          works?
-        </span>
-      </h1>
+      <img
+        className="absolute top-[617px] left-[100px]"
+        alt="How the Internet works?"
+        src={howInternetWorksSvg}
+      />
 
-      <p className="absolute w-[36.67%] h-[2.09%] top-[18.38%] left-[56.18%] [font-family:'Funnel_Sans-Regular',Helvetica] font-normal text-white text-[28px] tracking-[0] leading-[normal]">
-        The Internet is a global network <br />
-        of computers that communicate <br />
-        with each other using protocols.
-      </p>
+      <img
+        className="absolute top-[18.38%] left-[56.18%]"
+        alt="The Internet is a global network of computers that communicate with each other using protocols."
+        src={internetGlobalNetworkSvg}
+      />
 
-      <p className="absolute w-[50.56%] h-[2.58%] top-[21.82%] left-[42.08%] [font-family:'Funnel_Sans-Regular',Helvetica] font-normal text-white text-[28px] tracking-[0] leading-[normal]">
-        Every device connected to the Internet <br />
-        can send and receive information. <br />
-        When you visit a website, your computer sends a request to a server, and
-        the server sends back the webpage.
-      </p>
+      <img
+        className="absolute top-[21.82%] left-[42.08%]"
+        alt="Every device connected to the Internet can send and receive information. When you visit a website, your computer sends a request to a server, and the server sends back the webpage."
+        src={everyDeviceSvg}
+      />
 
-      <p className="absolute w-[35.42%] h-[2.76%] top-[25.96%] left-[56.18%] [font-family:'Funnel_Sans-Regular',Helvetica] font-normal text-white text-[28px] tracking-[0] leading-[normal]">
-        Data travels in small units called packets, which move through routers
-        and networks to reach their destination.
-      </p>
+      <img
+        className="absolute top-[25.96%] left-[56.18%]"
+        alt="Data travels in small units called packets, which move through routers and networks to reach their destination."
+        src={dataTravelsSvg}
+      />
 
       <img
         className="absolute w-[30.07%] h-[5.62%] top-[55.75%] left-[9.34%]"
@@ -250,12 +258,11 @@ function HomePage(): React.ReactElement {
         </div>
       ))}
 
-      <p
-        className="absolute top-[2886px] left-[418px] w-[420px] [font-family:'Funnel_Sans-Regular',Helvetica] font-normal text-black text-[32px] tracking-[0] leading-[normal]"
-        aria-label="Arrow pointing back to your computer"
-      >
-        → back to your computer
-      </p>
+      <img
+        className="absolute top-[2886px] left-[418px]"
+        alt="Arrow pointing back to your computer"
+        src={arrowBackToComputerSvg}
+      />
 
       <img
         className="absolute w-[7.22%] h-0 top-[30.21%] left-[62.78%]"
@@ -361,10 +368,11 @@ function HomePage(): React.ReactElement {
         src={vector20}
       />
 
-      <p className="absolute w-[24.65%] h-[2.99%] top-[34.34%] left-[42.29%] [font-family:'Funnel_Sans-Regular',Helvetica] font-normal text-black text-[32px] tracking-[0] leading-[normal]">
-        If you open your browser and type a website address, your request
-        travels from your computer
-      </p>
+      <img
+        className="absolute top-[34.34%] left-[42.29%]"
+        alt="If you open your browser and type a website address, your request travels from your computer"
+        src={ifYouOpenBrowserSvg}
+      />
 
       <img
         className="absolute w-[32.22%] h-[22.10%] top-[25.08%] left-[4.31%]"
@@ -378,12 +386,11 @@ function HomePage(): React.ReactElement {
         src={rectangle26}
       />
 
-      <p
-        className="absolute top-[2440px] left-[838px] w-[552px] [font-family:'Funnel_Sans-Regular',Helvetica] font-normal text-black text-[32px] tracking-[0] leading-[normal]"
-        aria-label="Arrow pointing to the server that hosts the website"
-      >
-        → the server that hosts the website
-      </p>
+      <img
+        className="absolute top-[2440px] left-[838px]"
+        alt="Arrow pointing to the server that hosts the website"
+        src={arrowServerHostsWebsiteSvg}
+      />
 
       <img
         className="absolute w-[30.69%] h-[6.91%] top-[53.34%] left-[62.78%]"
