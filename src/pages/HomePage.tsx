@@ -58,19 +58,6 @@ function HomePage(): React.ReactElement {
             imageRendering: "crisp-edges",
           }}
         />
-        {/* Overlay to hide old navbar text on right side (embedded in SVG) */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            width: "540px",
-            height: "80px",
-            background: "linear-gradient(90deg, rgba(47,0,255,1) 0%, rgba(169,255,71,1) 100%)",
-            pointerEvents: "none",
-            zIndex: 999,
-          }}
-        />
       </div>
 
       {/* Logo Link - Clickable area */}
