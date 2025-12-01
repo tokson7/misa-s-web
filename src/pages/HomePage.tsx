@@ -17,6 +17,9 @@ function HomePage(): React.ReactElement {
         backgroundColor: "#FFFFFF"
       }}
     >
+      {/* New Clean Navbar - Fixed at Top */}
+      <Navbar />
+
       {/* Complete Desktop 5 SVG from Figma - Pixel Perfect Exact Match */}
       <div 
         style={{
@@ -53,8 +56,6 @@ function HomePage(): React.ReactElement {
           }}
         />
       </div>
-
-      <Navbar />
 
       {/* Logo Link */}
       <Link

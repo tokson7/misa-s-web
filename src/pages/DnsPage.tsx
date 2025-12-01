@@ -17,6 +17,9 @@ function DnsPage(): React.ReactElement {
         backgroundColor: "#FFFFFF"
       }}
     >
+      {/* New Clean Navbar - Fixed at Top */}
+      <Navbar />
+
       {/* Complete Desktop 7 SVG from Figma - Pixel Perfect Full Screen */}
       <div 
         style={{
@@ -79,8 +82,6 @@ function DnsPage(): React.ReactElement {
           e.currentTarget.style.backgroundColor = "transparent";
         }}
       />
-
-      <Navbar />
     </main>
   );
 }
