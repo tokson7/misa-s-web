@@ -33,20 +33,6 @@ const Navbar = () => {
         pointerEvents: "none",
       }}
     >
-      {/* Overlay to hide SVG navigation text on the right side (900px-1440px area) */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: "540px",
-          height: "100%",
-          background: "linear-gradient(to right, transparent 0%, transparent 30%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.95) 100%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-      
       {/* Navigation Links */}
       <div
         style={{
@@ -54,8 +40,6 @@ const Navbar = () => {
           alignItems: "center",
           gap: "110px",
           pointerEvents: "auto",
-          position: "relative",
-          zIndex: 1,
         }}
       >
         {navItems.map((item) => (
