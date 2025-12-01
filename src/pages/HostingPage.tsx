@@ -56,6 +56,8 @@ function HostingPage(): React.ReactElement {
             margin: 0,
             padding: 0,
             imageRendering: "crisp-edges",
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 5.56%, 62.5% 5.56%, 62.5% 0%, 0% 0%, 0% 100%, 100% 100%, 100% 5.56%)",
+            WebkitClipPath: "polygon(0% 0%, 100% 0%, 100% 5.56%, 62.5% 5.56%, 62.5% 0%, 0% 0%, 0% 100%, 100% 100%, 100% 5.56%)",
           }}
         />
       </div>
