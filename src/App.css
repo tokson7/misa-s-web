@@ -16,60 +16,57 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Navigation link styles - Single layer, crisp black, no ghosting */
-.nav-link {
-  font-family: 'Inter', sans-serif; /* Update with token if available */
-  font-weight: 700;
-  font-size: 12px; /* Base size - Web Hosting uses 15px via inline style */
-  line-height: 1;
-  letter-spacing: 0em;
-  color: #0000CB !important; /* Blue color from SVG files for visibility */
-  text-shadow: none !important;
-  filter: none !important;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: none;
-  transition: color 120ms ease-in-out;
-  background: transparent !important;
-  display: inline-block !important;
-  transform: none !important;
-  outline: none !important;
-  -webkit-tap-highlight-color: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  -webkit-text-stroke: none !important;
-  -webkit-text-fill-color: #0000CB !important; /* Force blue color */
-  mix-blend-mode: normal !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 10000 !important;
-}
-
-/* Remove any pseudo-elements */
-.nav-link::before,
-.nav-link::after {
-  content: none !important;
-  display: none !important;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  outline: none !important;
-  text-shadow: none !important;
-  filter: none !important;
-  -webkit-text-stroke: none !important;
-}
-
-.nav-link:active {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  outline: none !important;
-  text-shadow: none !important;
-}
-
+/* Clean Navigation Bar - Single layer, sharp black text, white hover */
 .navbar {
-  background: transparent !important;
+  background: transparent;
+}
+
+.navbar-item {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #000000;
+  text-decoration: none;
+  text-shadow: none;
+  filter: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: color 120ms ease-in-out;
+  background: transparent;
+  display: inline-block;
+  transform: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: none;
+  border: none;
+  -webkit-text-stroke: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-item::before,
+.navbar-item::after {
+  content: none;
+  display: none;
+}
+
+.navbar-item:hover,
+.navbar-item:focus {
+  color: #ffffff;
+  text-shadow: none;
+  filter: none;
+  outline: none;
+}
+
+.navbar-item:active {
+  color: #ffffff;
+  text-shadow: none;
+  filter: none;
+  outline: none;
 }
 
 .logo {

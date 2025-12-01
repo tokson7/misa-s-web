@@ -1,48 +1,31 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 
-interface NavLinkProps {
+interface NavItemProps {
   to: string;
   label: string;
-  top: string;
   left: string;
 }
 
-const NavLink = memo<NavLinkProps>(({ to, label, top, left }) => {
+const NavItem = memo<NavItemProps>(({ to, label, left }) => {
   return (
     <Link
       to={to}
-      className="nav-link"
+      className="navbar-item"
       style={{
         position: "absolute",
-        top,
+        top: "0",
         left,
-        fontFamily: "'Inter', sans-serif", // Using Inter as fallback - update with token if available
+        fontFamily: "'Inter', sans-serif",
         fontWeight: 700,
-        fontSize: label === "Web Hosting" ? "15px" : "12px", // Web Hosting uses 15px per SVG dimensions
+        fontSize: "12px",
         lineHeight: 1,
-        letterSpacing: "0em",
-        color: "#0000CB", // Blue color from navigation SVG files for visibility
-        textShadow: "none !important",
-        filter: "none !important",
-        WebkitFontSmoothing: "antialiased",
+        letterSpacing: "0",
+        color: "#000000",
         textDecoration: "none",
-        transition: "color 120ms ease-in-out",
-        background: "transparent",
-        display: "inline-block",
-        transform: "none",
-        outline: "none",
         cursor: "pointer",
-        zIndex: 10000, // Higher z-index to ensure visibility
-        margin: 0,
-        padding: 0,
-        border: "none",
-        boxShadow: "none",
+        zIndex: 10000,
         whiteSpace: "nowrap",
-        WebkitTextStroke: "none",
-        WebkitTextFillColor: "#0000CB", // Force blue color
-        opacity: 1,
-        visibility: "visible",
       }}
       aria-label={label}
     >
@@ -52,7 +35,6 @@ const NavLink = memo<NavLinkProps>(({ to, label, top, left }) => {
 });
 
 const Navbar = memo(() => {
-  // Navigation menu: single blue color (#0000CB), no shadows, visible on all pages
   return (
     <nav
       className="navbar"
@@ -62,35 +44,19 @@ const Navbar = memo(() => {
         left: "0",
         width: "100%",
         height: "auto",
-        background: "transparent",
-        zIndex: 10000, // Higher z-index to ensure visibility
+        zIndex: 10000,
         pointerEvents: "none",
       }}
       aria-label="Main navigation"
     >
-      <NavLink
-        to="/domains"
-        label="Domain and IP"
-        top="0"
-        left="918px"
-      />
-      <NavLink
-        to="/dns"
-        label="DNS and Server"
-        top="0"
-        left="1091px"
-      />
-      <NavLink
-        to="/hosting"
-        label="Web Hosting"
-        top="0"
-        left="1270px"
-      />
+      <NavItem to="/domains" label="Domain and IP" left="918px" />
+      <NavItem to="/dns" label="DNS and Server" left="1091px" />
+      <NavItem to="/hosting" label="Web Hosting" left="1270px" />
     </nav>
   );
 });
 
 Navbar.displayName = "Navbar";
-NavLink.displayName = "NavLink";
+NavItem.displayName = "NavItem";
 
 export default Navbar;
