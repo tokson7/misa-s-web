@@ -22,7 +22,7 @@ function DomainsPage(): React.ReactElement {
         backgroundColor: "#FFFFFF",
       }}
     >
-      {/* Clean Navbar */}
+      {/* Clean Navbar - SINGLE INSTANCE ONLY */}
       <Navbar />
 
       {/* Desktop 8 SVG - Pixel Perfect */}

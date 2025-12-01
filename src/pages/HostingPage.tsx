@@ -22,7 +22,7 @@ function HostingPage(): React.ReactElement {
         backgroundColor: "#FFFFFF",
       }}
     >
-      {/* Clean Navbar */}
+      {/* Clean Navbar - SINGLE INSTANCE ONLY */}
       <Navbar />
 
       {/* Desktop 6 SVG - Pixel Perfect */}

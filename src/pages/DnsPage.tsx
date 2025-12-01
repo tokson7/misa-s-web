@@ -22,7 +22,7 @@ function DnsPage(): React.ReactElement {
         backgroundColor: "#FFFFFF",
       }}
     >
-      {/* Clean Navbar */}
+      {/* Clean Navbar - SINGLE INSTANCE ONLY */}
       <Navbar />
 
       {/* Desktop 7 SVG - Pixel Perfect */}

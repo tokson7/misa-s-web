@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 
 /**
- * Brand new clean navbar component
- * Built from scratch - no old code
- * - Pure black text (#000000) by default
+ * Single, clean navigation menu component
+ * - Dark text (#1A1A1A) for maximum contrast
  * - White (#FFFFFF) on hover (temporary)
  * - No blur, shadows, or opacity layers
  * - Crisp sharp rendering
  * - Fixed at top, 100% width, ~80px height
- * - Links centered with equal spacing
+ * - Links centered with proper spacing (gap-x-8 = 32px)
  */
 const Navbar = () => {
   const navItems = [
@@ -21,24 +20,24 @@ const Navbar = () => {
     <nav
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "80px",
+        top: "44px",
+        left: "918px",
+        width: "auto",
+        height: "auto",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         zIndex: 1000,
         backgroundColor: "transparent",
         pointerEvents: "none",
       }}
     >
-      {/* Navigation Links */}
+      {/* Navigation Links - SINGLE INSTANCE ONLY */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "110px",
+          gap: "32px", // gap-x-8 = 2rem = 32px
           pointerEvents: "auto",
         }}
       >
@@ -52,7 +51,7 @@ const Navbar = () => {
               fontSize: "16px",
               lineHeight: 1,
               letterSpacing: 0,
-              color: "#000000",
+              color: "#1A1A1A", // primary.main - dark color for maximum contrast
               textDecoration: "none",
               cursor: "pointer",
               transition: "color 150ms ease-in-out",
@@ -75,7 +74,7 @@ const Navbar = () => {
               e.currentTarget.style.color = "#FFFFFF";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#000000";
+              e.currentTarget.style.color = "#1A1A1A";
             }}
           >
             {item.label}

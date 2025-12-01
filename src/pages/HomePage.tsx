@@ -22,7 +22,7 @@ function HomePage(): React.ReactElement {
         backgroundColor: "#FFFFFF",
       }}
     >
-      {/* Clean Navbar */}
+      {/* Clean Navbar - SINGLE INSTANCE ONLY */}
       <Navbar />
 
       {/* Desktop 5 SVG - Pixel Perfect */}
