@@ -28,31 +28,18 @@ const Navbar = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        zIndex: 10000,
+        zIndex: 1000,
         backgroundColor: "transparent",
+        pointerEvents: "none",
       }}
     >
-      {/* Background overlay to hide SVG navigation text */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#FFFFFF",
-          zIndex: 0,
-        }}
-      />
-      
       {/* Navigation Links */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
           gap: "110px",
-          position: "relative",
-          zIndex: 1,
+          pointerEvents: "auto",
         }}
       >
         {navItems.map((item) => (
