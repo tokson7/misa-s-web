@@ -32,12 +32,26 @@ const Navbar = () => {
         backgroundColor: "transparent",
       }}
     >
+      {/* Background overlay to hide SVG navigation text underneath */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#FFFFFF",
+          zIndex: 0,
+        }}
+      />
       <div
         style={{
           display: "flex",
           alignItems: "center",
           gap: "110px",
           pointerEvents: "auto",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {navItems.map((item) => {
