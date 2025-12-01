@@ -54,7 +54,6 @@ function HostingPage(): React.ReactElement {
         />
     </div>
 
-      {/* Navigation Links - positioned over the SVG to maintain interactivity */}
       {/* Logo Link */}
       <Link
         to="/"
@@ -81,7 +80,6 @@ function HostingPage(): React.ReactElement {
         }}
       />
 
-      {/* Navigation Links */}
       <Navbar />
     </main>
   );

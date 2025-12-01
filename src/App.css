@@ -16,58 +16,6 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Clean Navigation Bar - Single layer, sharp black text, white hover */
-.navbar {
-  background: transparent;
-}
-
-.navbar-item {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: 0;
-  color: #000000;
-  text-decoration: none;
-  text-shadow: none;
-  filter: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  transition: color 120ms ease-in-out;
-  background: transparent;
-  display: inline-block;
-  transform: none;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  box-shadow: none;
-  border: none;
-  -webkit-text-stroke: none;
-  mix-blend-mode: normal;
-  opacity: 1;
-  visibility: visible;
-}
-
-.navbar-item::before,
-.navbar-item::after {
-  content: none;
-  display: none;
-}
-
-.navbar-item:hover,
-.navbar-item:focus {
-  color: #ffffff;
-  text-shadow: none;
-  filter: none;
-  outline: none;
-}
-
-.navbar-item:active {
-  color: #ffffff;
-  text-shadow: none;
-  filter: none;
-  outline: none;
-}
 
 .logo {
   height: 6em;

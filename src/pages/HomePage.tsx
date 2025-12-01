@@ -54,7 +54,6 @@ function HomePage(): React.ReactElement {
         />
       </div>
 
-      {/* Navigation Links - positioned over the SVG to maintain interactivity */}
       <Navbar />
 
       {/* Logo Link */}
