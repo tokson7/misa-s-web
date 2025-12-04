@@ -46,220 +46,154 @@ body {
 }
 
 /* ============================================
-   MOBILE RESPONSIVE STYLES (ONLY for < 768px)
-   Desktop layout remains UNCHANGED
+   MOBILE RESPONSIVE STYLES (ONLY for < 1024px)
+   Desktop layout (1024px+) remains 100% UNCHANGED
+   Mobile shows EXACT same layout, just scaled
    ============================================ */
 
-@media screen and (max-width: 767px) {
-  /* Ensure no horizontal overflow on mobile */
+/* BACKUP: Original desktop CSS preserved above - DO NOT MODIFY */
+
+@media screen and (max-width: 1023px) {
+  /* MOBILE: Preserve EXACT desktop layout, enable horizontal scrolling */
+  /* Desktop layout (1024px+) remains completely unchanged */
+  
+  /* Enable horizontal scrolling to see full desktop layout */
   html, body, #root {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
     width: 100% !important;
+    height: 100% !important;
   }
 
-  /* Override navbar fixed position for mobile - center it */
-  /* Cross-browser compatible transforms */
+  /* Main container - preserve desktop layout, allow horizontal scroll */
+  main {
+    min-width: 1440px !important; /* Desktop width - preserve exact layout */
+    width: 1440px !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    position: relative !important;
+    margin: 0 auto !important;
+  }
+
+  /* Preserve all desktop positioning - navbar stays in exact same position */
   nav {
-    position: fixed !important;
-    top: 20px !important; /* Fixed top position for mobile */
-    left: 50% !important; /* Center horizontally */
-    right: auto !important; /* Reset any right positioning */
-    /* Vendor prefixes for transform */
-    -webkit-transform: translateX(-50%) !important;
-    -moz-transform: translateX(-50%) !important;
-    -ms-transform: translateX(-50%) !important;
-    -o-transform: translateX(-50%) !important;
-    transform: translateX(-50%) !important; /* Perfect centering */
-    width: auto !important;
-    max-width: 95vw !important; /* Prevent overflow */
-    height: auto !important;
-    display: -webkit-box !important;
-    display: -webkit-flex !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-align-items: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -webkit-justify-content: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    z-index: 10002 !important; /* Above logo links (10001) and all content */
-    background-color: transparent !important;
-    pointer-events: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    isolation: isolate !important; /* Create new stacking context */
-    visibility: visible !important; /* Ensure visible */
-    opacity: 1 !important; /* Ensure fully opaque */
-  }
-
-  /* Navbar container - allow wrapping on very small screens */
-  /* Cross-browser flexbox */
-  nav > div {
-    display: -webkit-box !important;
-    display: -webkit-flex !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-align-items: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -webkit-justify-content: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    gap: 10px !important; /* Reduced from 32px for mobile */
+    /* Keep exact desktop position - DO NOT change */
+    position: absolute !important;
+    /* Original desktop position preserved */
     pointer-events: auto !important;
-    -webkit-flex-wrap: wrap !important;
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important; /* Allow wrapping on very small screens */
-    max-width: 100% !important;
-    position: relative !important; /* Ensure proper positioning context */
-    z-index: inherit !important; /* Inherit from parent nav */
-    visibility: visible !important; /* Ensure visible */
-    opacity: 1 !important; /* Ensure fully opaque */
+    /* Touch-friendly - increase tap target but keep visual design */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+    -ms-touch-action: manipulation !important;
+    touch-action: manipulation !important;
   }
 
-  /* Scale navbar links for mobile - ensure they're touchable */
-  /* Cross-browser compatible */
+  /* Navbar links - keep same visual design, make touch-friendly */
   nav a {
-    font-size: 12px !important; /* Readable size for mobile */
-    white-space: nowrap !important;
-    padding: 6px 8px !important; /* Touch-friendly padding */
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0 !important;
-    min-height: 32px !important; /* Minimum touch target size */
-    display: -webkit-box !important;
-    display: -webkit-flex !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-align-items: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -webkit-justify-content: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important; /* Subtle tap feedback */
+    /* Keep exact same font, color, spacing as desktop */
+    /* Only add touch-friendly properties */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
     -ms-touch-action: manipulation !important;
-    touch-action: manipulation !important; /* Prevent double-tap zoom */
+    touch-action: manipulation !important;
     -webkit-user-select: none !important;
     -moz-user-select: none !important;
     -ms-user-select: none !important;
-    user-select: none !important; /* Prevent text selection on tap */
+    user-select: none !important;
+    /* Ensure minimum touch target (44x44px) while keeping visual design */
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
   }
 
-  /* Active/touch state for navbar links */
+  /* Touch feedback on active state */
   nav a:active {
     opacity: 0.7 !important;
   }
 
-  /* Scale logo link areas proportionally for all pages */
+  /* Logo link - preserve exact position, make touch-friendly */
   a[aria-label="Home"] {
-    top: 10px !important; /* Scaled from 0px/24px */
-    left: 5% !important; /* Scaled from 46px/156px */
-    width: 20% !important; /* Scaled from 217px/168px - larger for touch */
-    height: 40px !important; /* Fixed height for touch target */
-    min-height: 40px !important;
-    max-height: 40px !important;
+    /* Keep exact desktop position */
+    /* Only ensure touch target size */
+    min-width: 44px !important;
+    min-height: 44px !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+    -ms-touch-action: manipulation !important;
+    touch-action: manipulation !important;
   }
 
-  /* Ensure main containers don't overflow */
-  main {
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important; /* Allow vertical scroll */
-    position: relative !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 1 !important; /* Below navbar */
-  }
-
-  /* Scale SVG/image containers */
+  /* Preserve all SVG/image containers - exact desktop layout */
   main > div {
     width: 100% !important;
-    max-width: 100vw !important;
-    overflow: hidden !important;
     position: relative !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 1 !important; /* Below navbar */
   }
 
-  /* Ensure images/SVGs scale properly without overflow */
+  /* Preserve images/SVGs - exact desktop sizing */
   main img {
     width: 100% !important;
-    max-width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;
     display: block !important;
-    position: relative !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 1 !important; /* Below navbar */
   }
 
-  /* Prevent any nested containers from causing horizontal scroll */
-  main > div,
-  main > div > div {
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
+  /* Video carousel - preserve exact desktop layout */
+  section {
+    /* Keep exact desktop positioning */
+    position: absolute !important;
+    /* Enable touch scrolling for video carousel */
+    -webkit-overflow-scrolling: touch !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
   }
 
-  /* Ensure all absolute positioned elements scale */
-  main > a,
-  main > Link {
-    max-width: 100vw !important;
+  /* Video cards - preserve exact desktop design */
+  .phone-frame {
+    /* Keep exact desktop size and styling */
+    /* Make touch-friendly for video interaction */
+    -webkit-tap-highlight-color: transparent !important;
+    -ms-touch-action: manipulation !important;
+    touch-action: manipulation !important;
+  }
+
+  /* YouTube iframes - ensure playable on mobile */
+  iframe {
+    /* Ensure videos are playable on iOS and Android */
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    pointer-events: auto !important;
   }
 }
 
 /* ============================================
-   EXTRA SMALL MOBILE (390-430px width)
-   Stack navbar vertically if needed
+   EXTRA SMALL MOBILE (under 430px width)
+   Still preserve desktop layout, just ensure touch targets
    ============================================ */
 
 @media screen and (max-width: 430px) {
-  /* Stack navbar vertically on very small screens */
-  nav > div {
-    flex-direction: column !important;
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 90vw !important;
+  /* On very small screens, still show desktop layout with horizontal scroll */
+  /* Only ensure minimum touch targets are met */
+  
+  main {
+    min-width: 1440px !important; /* Still preserve desktop width */
+    width: 1440px !important;
   }
 
-  /* Make navbar links full width on stacked layout */
-  nav a {
-    font-size: 11px !important;
-    padding: 8px 12px !important;
-    width: 100% !important;
-    min-width: 120px !important;
-    text-align: center !important;
-  }
-
-  /* Adjust navbar position for stacked layout */
-  /* Cross-browser compatible transforms */
-  nav {
-    top: 10px !important;
-    left: 50% !important; /* Ensure centered */
-    right: auto !important; /* Reset any right positioning */
-    -webkit-transform: translateX(-50%) !important;
-    -moz-transform: translateX(-50%) !important;
-    -ms-transform: translateX(-50%) !important;
-    -o-transform: translateX(-50%) !important;
-    transform: translateX(-50%) !important; /* Perfect centering */
-    width: 90% !important;
-    max-width: 90vw !important;
-    z-index: 10002 !important; /* Above everything */
-    isolation: isolate !important; /* Create new stacking context */
-    visibility: visible !important; /* Ensure visible */
-    opacity: 1 !important; /* Ensure fully opaque */
-  }
-
-  /* Ensure logo link is still accessible */
-  a[aria-label="Home"] {
-    min-height: 35px !important;
-    max-height: 35px !important;
-    width: 25% !important;
+  /* Ensure all interactive elements meet minimum touch target (44x44px) */
+  nav a,
+  a[aria-label="Home"],
+  .phone-frame {
+    min-width: 44px !important;
+    min-height: 44px !important;
   }
 }
