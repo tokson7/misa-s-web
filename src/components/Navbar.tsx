@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
  * - White (#FFFFFF) on hover (temporary)
  * - No blur, shadows, or opacity layers
  * - Crisp sharp rendering
- * - Fixed at top, 100% width, ~80px height
- * - Links centered with proper spacing (gap-x-8 = 32px)
+ * - Original positioning restored (scrolls with page)
+ * - Links with proper spacing (gap-x-8 = 32px)
  */
 const Navbar = () => {
   const navItems = [
@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav
       style={{
-        position: "fixed",
+        position: "absolute",
         top: "44px",
         left: "918px",
         width: "auto",

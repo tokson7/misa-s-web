@@ -5,8 +5,8 @@ import './index.css'
 import { router } from './routes'
 
 const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-screen bg-white">
-    <div className="text-[#0000cb] text-xl">Loading...</div>
+  <div style={{ width: "100%", height: "100%", margin: 0, padding: 0, display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#FFFFFF" }}>
+    <div style={{ color: "#0000cb", fontSize: "20px" }}>Loading...</div>
   </div>
 );
 

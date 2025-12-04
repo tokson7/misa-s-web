@@ -1,3 +1,94 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Override Tailwind base styles to prevent any default margins/padding */
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbar for video carousel - cross-browser support */
+.hide-scrollbar {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE and Edge */
+  -ms-overflow-style: none;
+}
+
+/* Webkit browsers (Chrome, Safari, Opera) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Phone frames carousel (video cards row) */
+.phone-frames {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0;
+  overflow: visible; /* allow hovered cards to grow without clipping */
+  will-change: transform;
+}
+
+.phone-frame {
+  flex-shrink: 0;
+  will-change: transform;
+  min-height: 400px;
+}
+
+/* Video container - ensure proper height for video players */
+.phone-frame > div {
+  min-height: 400px;
+}
+
+/* YouTube iframe styling - ensure iframes are visible and properly sized */
+.phone-frame iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 380px !important;
+  background: #000000 !important; /* Black placeholder before video loads */
+  /* Scale to fill vertical frame like TikTok/Instagram Reels */
+  /* Frame: 250px × 380px (9:16), Video: 16:9 */
+  /* To fill 380px height: video width = 380 * 16/9 = 675.56px */
+  /* Scale factor = 675.56 / 250 = 2.7x */
+  transform: scale(2.7) !important;
+  transform-origin: center center !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Phone frame container - hide overflow to crop scaled video */
+.phone-frame {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Video thumbnail placeholder - smooth fade out when video loads */
+.video-thumbnail {
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Video card hover effect - smooth enlargement and glow */
+.video-card-hover {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.video-card-hover:hover {
+  transform: scale(1.15); /* dramatic enlargement on hover */
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.6);
+  z-index: 50; /* ensure hovered card floats above neighbors */
+}
+

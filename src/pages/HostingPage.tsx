@@ -12,8 +12,8 @@ function HostingPage(): React.ReactElement {
   return (
     <main
       style={{
-        width: "100vw",
-        minHeight: "100vh",
+        width: "100%",
+        height: "100%",
         margin: 0,
         padding: 0,
         overflowX: "hidden",
@@ -28,8 +28,7 @@ function HostingPage(): React.ReactElement {
       {/* Desktop 6 SVG - Pixel Perfect */}
       <div
         style={{
-          width: "100vw",
-          minWidth: "1440px",
+          width: "100%",
           height: "auto",
           position: "relative",
           margin: 0,
@@ -45,12 +44,12 @@ function HostingPage(): React.ReactElement {
           style={{
             display: "block",
             width: "100%",
-            minWidth: "1440px",
+            maxWidth: "100%",
             height: "auto",
             position: "relative",
             top: 0,
             left: 0,
-            objectFit: "fill",
+            objectFit: "contain",
             objectPosition: "top left",
             pointerEvents: "none",
             margin: 0,
@@ -58,6 +57,34 @@ function HostingPage(): React.ReactElement {
             imageRendering: "crisp-edges",
           }}
         />
+        
+        {/* YouTube Video Embed - Replaces image in rounded rectangle frame */}
+        <div
+          style={{
+            position: "absolute",
+            left: "752px",
+            top: "189px",
+            width: "586px",
+            height: "328px",
+            borderRadius: "18px",
+            border: "4px solid #000000",
+            overflow: "hidden",
+            zIndex: 10,
+          }}
+        >
+          <iframe
+            src="https://www.youtube.com/embed/UXsomnDkntI?autoplay=1&mute=0&loop=1&playlist=UXsomnDkntI&enablejsapi=1&controls=1&modestbranding=1&rel=0&iv_load_policy=3"
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              borderRadius: "18px",
+              objectFit: "cover",
+            }}
+            allow="autoplay; encrypted-media"
+            title="Web Hosting Video"
+          />
+        </div>
       </div>
 
       {/* Logo Link - Clickable area */}

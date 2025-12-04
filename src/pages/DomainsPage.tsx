@@ -12,8 +12,8 @@ function DomainsPage(): React.ReactElement {
   return (
     <main
       style={{
-        width: "100vw",
-        minHeight: "100vh",
+        width: "100%",
+        height: "100%",
         margin: 0,
         padding: 0,
         overflowX: "hidden",
@@ -28,8 +28,7 @@ function DomainsPage(): React.ReactElement {
       {/* Desktop 8 SVG - Pixel Perfect */}
       <div
         style={{
-          width: "100vw",
-          minWidth: "1440px",
+          width: "100%",
           height: "auto",
           position: "relative",
           margin: 0,
@@ -45,12 +44,12 @@ function DomainsPage(): React.ReactElement {
           style={{
             display: "block",
             width: "100%",
-            minWidth: "1440px",
+            maxWidth: "100%",
             height: "auto",
             position: "relative",
             top: 0,
             left: 0,
-            objectFit: "fill",
+            objectFit: "contain",
             objectPosition: "top left",
             pointerEvents: "none",
             margin: 0,
