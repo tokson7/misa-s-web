@@ -1,4 +1,12 @@
+/* CSS Reset and Normalize - Cross-browser compatibility */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* Global full-screen layout - no white space, no dragging */
+/* Cross-browser compatible */
 html {
   width: 100%;
   height: 100%;
@@ -6,9 +14,14 @@ html {
   padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  /* Font rendering - cross-browser */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Safari specific fixes */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -46,17 +59,30 @@ body {
   }
 
   /* Override navbar fixed position for mobile - center it */
+  /* Cross-browser compatible transforms */
   nav {
     position: fixed !important;
     top: 20px !important; /* Fixed top position for mobile */
     left: 50% !important; /* Center horizontally */
     right: auto !important; /* Reset any right positioning */
+    /* Vendor prefixes for transform */
+    -webkit-transform: translateX(-50%) !important;
+    -moz-transform: translateX(-50%) !important;
+    -ms-transform: translateX(-50%) !important;
+    -o-transform: translateX(-50%) !important;
     transform: translateX(-50%) !important; /* Perfect centering */
     width: auto !important;
     max-width: 95vw !important; /* Prevent overflow */
     height: auto !important;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
     display: flex !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
     justify-content: center !important;
     z-index: 10002 !important; /* Above logo links (10001) and all content */
     background-color: transparent !important;
@@ -69,12 +95,22 @@ body {
   }
 
   /* Navbar container - allow wrapping on very small screens */
+  /* Cross-browser flexbox */
   nav > div {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
     display: flex !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
     justify-content: center !important;
     gap: 10px !important; /* Reduced from 32px for mobile */
     pointer-events: auto !important;
+    -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important; /* Allow wrapping on very small screens */
     max-width: 100% !important;
     position: relative !important; /* Ensure proper positioning context */
@@ -84,6 +120,7 @@ body {
   }
 
   /* Scale navbar links for mobile - ensure they're touchable */
+  /* Cross-browser compatible */
   nav a {
     font-size: 12px !important; /* Readable size for mobile */
     white-space: nowrap !important;
@@ -92,12 +129,23 @@ body {
     line-height: 1.2 !important;
     letter-spacing: 0 !important;
     min-height: 32px !important; /* Minimum touch target size */
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
     display: flex !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
     justify-content: center !important;
     text-align: center !important;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important; /* Subtle tap feedback */
+    -ms-touch-action: manipulation !important;
     touch-action: manipulation !important; /* Prevent double-tap zoom */
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
     user-select: none !important; /* Prevent text selection on tap */
   }
 
@@ -190,10 +238,15 @@ body {
   }
 
   /* Adjust navbar position for stacked layout */
+  /* Cross-browser compatible transforms */
   nav {
     top: 10px !important;
     left: 50% !important; /* Ensure centered */
     right: auto !important; /* Reset any right positioning */
+    -webkit-transform: translateX(-50%) !important;
+    -moz-transform: translateX(-50%) !important;
+    -ms-transform: translateX(-50%) !important;
+    -o-transform: translateX(-50%) !important;
     transform: translateX(-50%) !important; /* Perfect centering */
     width: 90% !important;
     max-width: 90vw !important;

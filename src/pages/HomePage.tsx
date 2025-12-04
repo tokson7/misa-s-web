@@ -159,6 +159,8 @@ function HomePage(): React.ReactElement {
             zIndex: 1,
             opacity: 1,
             transition: "opacity 0.3s ease",
+            WebkitBackfaceVisibility: "hidden",
+            backfaceVisibility: "hidden",
           }}
           className="video-thumbnail"
         />
@@ -168,6 +170,7 @@ function HomePage(): React.ReactElement {
           src={isPriorityVideo ? videoUrl : "about:blank"}
           loading={isPriorityVideo ? "eager" : "lazy"}
           allow="autoplay; encrypted-media"
+          allowFullScreen
           style={{
             width: "100%",
             height: "100%",
@@ -177,6 +180,11 @@ function HomePage(): React.ReactElement {
             left: 0,
             backgroundColor: "#000000",
             zIndex: 2,
+            // Safari-specific fixes
+            WebkitTransform: "translateZ(0)",
+            transform: "translateZ(0)",
+            WebkitBackfaceVisibility: "hidden",
+            backfaceVisibility: "hidden",
           }}
           title={`Video ${index + 1}`}
           data-lazy-loaded={isPriorityVideo ? "true" : "false"}

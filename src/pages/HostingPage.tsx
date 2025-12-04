@@ -80,8 +80,14 @@ function HostingPage(): React.ReactElement {
               border: "none",
               borderRadius: "18px",
               objectFit: "cover",
+              // Safari-specific fixes
+              WebkitTransform: "translateZ(0)",
+              transform: "translateZ(0)",
+              WebkitBackfaceVisibility: "hidden",
+              backfaceVisibility: "hidden",
             }}
             allow="autoplay; encrypted-media"
+            allowFullScreen
             title="Web Hosting Video"
           />
         </div>
