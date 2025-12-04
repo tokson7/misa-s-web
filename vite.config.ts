@@ -4,13 +4,12 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Base path for GitHub Pages deployment
-  // Use './' for relative paths (works for both root and subdirectory deployment)
-  // Use '/' for root deployment only (username.github.io)
-  // Use '/repo-name/' for subdirectory deployment (username.github.io/repo-name)
-  // For development: use '/' (works with cloudflare tunnel)
-  // For production build: use '/Misa_s_web/' (for GitHub Pages)
-  base: process.env.NODE_ENV === 'production' ? '/Misa_s_web/' : '/',
+  // Base path configuration
+  // Netlify: use '/' (root deployment) - Netlify sets NETLIFY=true or CONTEXT env vars
+  // GitHub Pages: use '/Misa_s_web/' (subdirectory deployment)
+  // Default to '/' for development and Netlify, use '/Misa_s_web/' only for GitHub Pages
+  base: process.env.NETLIFY === 'true' || process.env.CONTEXT || process.env.DEPLOY_PRIME_URL ? '/' : 
+        (process.env.GITHUB_PAGES === 'true' ? '/Misa_s_web/' : '/'),
   server: {
     host: '0.0.0.0',
     port: 5173,
