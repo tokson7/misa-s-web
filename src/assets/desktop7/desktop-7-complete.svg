@@ -73,7 +73,7 @@
 <path d="M733.692 1696.84H726.77V1689.87H733.692V1696.84Z" fill="white"/>
 </g>
 <defs>
-<clipPath id="paint4_diamond_208_1228_clip_path"><rect x="0" y="79" width="1440" height="79"/></clipPath><radialGradient id="paint0_radial_208_1228" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1176.75 1693.86) scale(834.75 234.111)">
+<clipPath id="paint4_diamond_208_1228_clip_path"><rect x="1440" y="79" width="1440" height="78.9999" transform="rotate(-180 1440 79)"/></clipPath><radialGradient id="paint0_radial_208_1228" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1176.75 1693.86) scale(834.75 234.111)">
 <stop offset="1"/>
 </radialGradient>
 <linearGradient id="paint1_linear_208_1228" x1="1261.03" y1="595.21" x2="836.412" y2="1492.2" gradientUnits="userSpaceOnUse">
