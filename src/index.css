@@ -1,3 +1,4 @@
+/* @tailwind directives are valid - CSS linter doesn't recognize them */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
