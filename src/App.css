@@ -48,61 +48,79 @@ body {
 /* ============================================
    MOBILE RESPONSIVE STYLES (ONLY for < 1024px)
    Desktop layout (1024px+) remains 100% UNCHANGED
-   Mobile shows EXACT same layout, just scaled
+   Mobile uses vertical-first, fluid architecture
    ============================================ */
 
-/* BACKUP: Original desktop CSS preserved above - DO NOT MODIFY */
-
 @media screen and (max-width: 1023px) {
-  /* MOBILE: Preserve EXACT desktop layout, enable horizontal scrolling */
-  /* Desktop layout (1024px+) remains completely unchanged */
+  /* ============================================
+     Core Layout - Eliminate Horizontal Scroll
+     ============================================ */
   
-  /* Enable horizontal scrolling to see full desktop layout */
   html, body, #root {
-    overflow-x: auto !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
     width: 100% !important;
-    height: 100% !important;
-  }
-
-  /* Main container - preserve desktop layout, allow horizontal scroll */
-  main {
-    min-width: 1440px !important; /* Desktop width - preserve exact layout */
-    width: 1440px !important;
-    overflow-x: auto !important;
+    overflow-x: hidden !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     position: relative !important;
-    margin: 0 auto !important;
   }
 
-  /* Preserve all desktop positioning - navbar stays in exact same position */
+  /* Main container - vertical flow using Flexbox */
+  main {
+    width: 100% !important;
+    min-width: unset !important;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+  }
+
+  /* ============================================
+     Navigation - Sticky/Relative at Top
+     ============================================ */
+  
   nav {
-    /* Keep exact desktop position - DO NOT change */
-    position: absolute !important;
-    /* Original desktop position preserved */
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    z-index: 1000 !important;
+    padding: 12px 16px !important;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
     pointer-events: auto !important;
-    /* Touch-friendly - increase tap target but keep visual design */
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+    -webkit-tap-highlight-color: transparent !important;
     -ms-touch-action: manipulation !important;
     touch-action: manipulation !important;
   }
 
-  /* Navbar links - keep same visual design, make touch-friendly */
+  /* Navbar links - centered, touch-friendly */
   nav a {
-    /* Keep exact same font, color, spacing as desktop */
-    /* Only add touch-friendly properties */
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
-    -ms-touch-action: manipulation !important;
-    touch-action: manipulation !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
-    /* Ensure minimum touch target (44x44px) while keeping visual design */
     min-width: 44px !important;
     min-height: 44px !important;
+    padding: 8px 16px !important;
     display: -webkit-box !important;
     display: -webkit-flex !important;
     display: -ms-flexbox !important;
@@ -113,86 +131,218 @@ body {
     -webkit-justify-content: center !important;
     -ms-flex-pack: center !important;
     justify-content: center !important;
-  }
-
-  /* Touch feedback on active state */
-  nav a:active {
-    opacity: 0.7 !important;
-  }
-
-  /* Logo link - preserve exact position, make touch-friendly */
-  a[aria-label="Home"] {
-    /* Keep exact desktop position */
-    /* Only ensure touch target size */
-    min-width: 44px !important;
-    min-height: 44px !important;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
     -ms-touch-action: manipulation !important;
     touch-action: manipulation !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
   }
 
-  /* Preserve all SVG/image containers - exact desktop layout */
-  main > div {
-    width: 100% !important;
+  nav a:active {
+    opacity: 0.7 !important;
+    -webkit-transform: scale(0.95) translateZ(0) !important;
+    transform: scale(0.95) translateZ(0) !important;
+  }
+
+  /* Logo link - touch-friendly */
+  a[aria-label="Home"] {
     position: relative !important;
-  }
-
-  /* Preserve images/SVGs - exact desktop sizing */
-  main img {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-  }
-
-  /* Video carousel - preserve exact desktop layout */
-  section {
-    /* Keep exact desktop positioning */
-    position: absolute !important;
-    /* Enable touch scrolling for video carousel */
-    -webkit-overflow-scrolling: touch !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-  }
-
-  /* Video cards - preserve exact desktop design */
-  .phone-frame {
-    /* Keep exact desktop size and styling */
-    /* Make touch-friendly for video interaction */
+    min-width: 44px !important;
+    min-height: 44px !important;
     -webkit-tap-highlight-color: transparent !important;
     -ms-touch-action: manipulation !important;
     touch-action: manipulation !important;
+    z-index: 1001 !important;
   }
 
-  /* YouTube iframes - ensure playable on mobile */
-  iframe {
-    /* Ensure videos are playable on iOS and Android */
+  /* ============================================
+     Assets - Responsive Images and SVGs
+     ============================================ */
+  
+  main img,
+  main svg {
+    max-width: 100% !important;
+    height: auto !important;
+    position: static !important;
+    display: block !important;
+  }
+
+  /* Image containers - responsive */
+  main > div {
+    width: 100% !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ============================================
+     Video Carousel - Responsive Grid
+     ============================================ */
+  
+  section {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    height: auto !important;
+    padding: 24px 16px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    z-index: 300 !important;
+  }
+
+  /* Scroll container - remove horizontal scroll */
+  section > div {
+    width: 100% !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  /* Phone frames container - responsive grid */
+  .phone-frames {
+    display: -webkit-grid !important;
+    display: -ms-grid !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+  }
+
+  /* Phone frame - maintain 9:16 aspect ratio */
+  .phone-frame {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    aspect-ratio: 250 / 380 !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    -webkit-perspective: 1000px !important;
+    perspective: 1000px !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -ms-touch-action: manipulation !important;
+    touch-action: manipulation !important;
+    will-change: transform !important;
+  }
+
+  /* Ensure aspect ratio on older browsers */
+  @supports not (aspect-ratio: 1) {
+    .phone-frame {
+      padding-bottom: 152% !important; /* 380/250 * 100% */
+    }
+  }
+
+  /* Video container */
+  .phone-frame > div {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: unset !important;
+  }
+
+  /* YouTube iframe - contained scaling */
+  .phone-frame iframe {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    -webkit-transform: translate(-50%, -50%) scale(2.7) translateZ(0) !important;
+    -moz-transform: translate(-50%, -50%) scale(2.7) !important;
+    -ms-transform: translate(-50%, -50%) scale(2.7) !important;
+    -o-transform: translate(-50%, -50%) scale(2.7) !important;
+    transform: translate(-50%, -50%) scale(2.7) translateZ(0) !important;
+    -webkit-transform-origin: center center !important;
+    -moz-transform-origin: center center !important;
+    -ms-transform-origin: center center !important;
+    -o-transform-origin: center center !important;
+    transform-origin: center center !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
     -moz-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
     pointer-events: auto !important;
+    border: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #000000 !important;
+    min-height: unset !important;
+  }
+
+  /* Disable hover effects on mobile */
+  .video-card-hover:hover {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    z-index: auto !important;
+  }
+
+  /* Video thumbnail */
+  .video-thumbnail {
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
   }
 }
 
 /* ============================================
    EXTRA SMALL MOBILE (under 430px width)
-   Still preserve desktop layout, just ensure touch targets
    ============================================ */
 
 @media screen and (max-width: 430px) {
-  /* On very small screens, still show desktop layout with horizontal scroll */
-  /* Only ensure minimum touch targets are met */
-  
-  main {
-    min-width: 1440px !important; /* Still preserve desktop width */
-    width: 1440px !important;
+  /* Navbar - smaller padding */
+  nav {
+    padding: 10px 12px !important;
   }
 
-  /* Ensure all interactive elements meet minimum touch target (44x44px) */
-  nav a,
-  a[aria-label="Home"],
+  /* Navbar links - adjust font size if needed */
+  nav a {
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  /* Video carousel - single column on very small screens */
+  .phone-frames {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Phone frame - full width on small screens */
   .phone-frame {
+    max-width: 100% !important;
+  }
+
+  /* Section padding - reduce on small screens */
+  section {
+    padding: 20px 12px !important;
+  }
+
+  /* Logo link */
+  a[aria-label="Home"] {
     min-width: 44px !important;
     min-height: 44px !important;
   }
