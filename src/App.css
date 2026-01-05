@@ -256,23 +256,14 @@ body {
     min-height: unset !important;
   }
 
-  /* YouTube iframe - contained scaling */
-  .phone-frame iframe {
+  /* Native HTML5 video - zero UI, autoplay, loop */
+  .phone-frame video {
     width: 100% !important;
     height: 100% !important;
+    object-fit: cover !important;
     position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    -webkit-transform: translate(-50%, -50%) scale(2.7) translateZ(0) !important;
-    -moz-transform: translate(-50%, -50%) scale(2.7) !important;
-    -ms-transform: translate(-50%, -50%) scale(2.7) !important;
-    -o-transform: translate(-50%, -50%) scale(2.7) !important;
-    transform: translate(-50%, -50%) scale(2.7) translateZ(0) !important;
-    -webkit-transform-origin: center center !important;
-    -moz-transform-origin: center center !important;
-    -ms-transform-origin: center center !important;
-    -o-transform-origin: center center !important;
-    transform-origin: center center !important;
+    top: 0 !important;
+    left: 0 !important;
     -webkit-backface-visibility: hidden !important;
     backface-visibility: hidden !important;
     -webkit-touch-callout: none !important;
@@ -281,12 +272,12 @@ body {
     -ms-user-select: none !important;
     user-select: none !important;
     pointer-events: auto !important;
-    border: none !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     background: #000000 !important;
-    min-height: unset !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
   }
 
   /* Disable hover effects on mobile */
@@ -300,11 +291,6 @@ body {
     z-index: auto !important;
   }
 
-  /* Video thumbnail */
-  .video-thumbnail {
-    -webkit-transform: translateZ(0) !important;
-    transform: translateZ(0) !important;
-  }
 }
 
 /* ============================================
@@ -346,4 +332,107 @@ body {
     min-width: 44px !important;
     min-height: 44px !important;
   }
+}
+
+/* ============================================
+   ABSOLUTE ZERO HOVER INTERACTION - Video Frames
+   NO hover effects, NO overlays, NO visual feedback
+   Click-only playback control
+   ============================================ */
+
+/* Disable ALL hover-based behavior on video frames */
+.phone-frame {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* Homepage video card hover effect - disabled to allow shine/lift effect */
+/* Hover styles are now defined in index.css */
+/*
+.phone-frame:hover {
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  box-shadow: none !important;
+  z-index: auto !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+*/
+
+/* Native HTML5 video - zero UI overlays */
+.phone-frame video {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Hide video controls completely */
+.phone-frame video::-webkit-media-controls {
+  display: none !important;
+}
+
+.phone-frame video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.phone-frame video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.phone-frame video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+.phone-frame video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+/* Explicitly hide any potential overlay elements */
+.phone-frame::before,
+.phone-frame::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Prevent any child elements from showing overlays */
+.phone-frame > * {
+  pointer-events: none !important;
+}
+
+.phone-frame > video {
+  pointer-events: auto !important;
+}
+
+/* Disable focus-based visual feedback */
+.phone-frame:focus,
+.phone-frame:focus-visible,
+.phone-frame:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 3px solid #000000 !important;
+}
+
+/* Disable video focus and outline */
+.phone-frame video:focus,
+.phone-frame video:focus-visible,
+.phone-frame video:focus-within {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Ensure video has no controls attribute styling */
+.phone-frame video[controls] {
+  /* If controls attribute accidentally added, hide it */
+}
+
+.phone-frame video:not([controls]) {
+  /* Explicitly no controls */
 }

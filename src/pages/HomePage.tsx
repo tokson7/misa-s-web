@@ -11,27 +11,22 @@ import Navbar from "../components/Navbar";
  * Horizontal video carousel (manual scroll, duplicated cards)
  */
 function HomePage(): React.ReactElement {
-  // Video IDs for all 13 cards
-  const videoIds = [
-    "ma67yOdMQfs",
-    "EzGPmg4fFL8",
-    "X3GYAmDI5Gc",
-    "iywaBOMvYLI",
-    "DJ940rgNMfA",
-    "C7BdSZ8umw4",
-    "Sfzo4xm5eX8",
-    "bncKttwlYB0",
-    "N7ZmPYaXoic",
-    "0Qx_npsD_tk",
-    "eOrzH0kmegw",
-    "DlKsYHC8QAw",
-    "brWYAALZes4",
+  // Local video file paths for all 13 cards
+  const videoFiles = [
+    "video1.mp4",
+    "video2.mp4",
+    "video3.mp4",
+    "video4.mp4",
+    "video5.mp4",
+    "video6.mp4",
+    "video7.mp4",
+    "video8.mp4",
+    "video9.mp4",
+    "video10.mp4",
+    "video11.mp4",
+    "video12.mp4",
+    "video13.mp4",
   ];
-
-  // Optimized YouTube embed URLs with infinite loop
-  const videoUrls = videoIds.map(
-    (id) => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&enablejsapi=1`
-  );
   // Card dimensions and spacing - slightly smaller for better hover visibility
   const CARD_WIDTH = 250; // slightly reduced from 276px
   const CARD_HEIGHT = 380; // slightly reduced from 432px
@@ -91,44 +86,30 @@ function HomePage(): React.ReactElement {
     };
   }, [CARD_WIDTH, CARD_GAP, CARDS_PER_SET]);
 
-  // VideoCard component - optimized for instant loading
-  const VideoCard: React.FC<{ index: number; videoUrl: string; videoId: string }> = ({ index, videoUrl, videoId }) => {
-    const iframeRef = useRef<HTMLIFrameElement>(null);
-    const isPriorityVideo = index < 5; // First 5 videos load immediately
-    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  // VideoCard component - Native HTML5 video, zero UI, silent autoplay
+  const VideoCard: React.FC<{ videoFile: string }> = ({ videoFile }) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    // Hardcoded video path - static public asset
+    const videoPath = `/hd_videos/${videoFile}`;
 
-    // Netflix-style audio control handlers - ONLY control audio, never touch play/pause
-    const handleMouseEnter = () => {
-      const iframe = iframeRef.current;
-      if (iframe && iframe.contentWindow && iframe.src !== 'about:blank' && iframe.src.includes('youtube.com')) {
-        try {
-          setTimeout(() => {
-            if (iframe.contentWindow) {
-              iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
-            }
-          }, 100);
-        } catch (error) {
-          console.debug('Video control command failed:', error);
-        }
-      }
-    };
-
-    const handleMouseLeave = () => {
-      const iframe = iframeRef.current;
-      if (iframe && iframe.contentWindow && iframe.src !== 'about:blank' && iframe.src.includes('youtube.com')) {
-        try {
-          iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-        } catch (error) {
-          console.debug('Video control command failed:', error);
+    // Click handler - toggle play/pause silently, zero visual feedback
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const video = videoRef.current;
+      if (video) {
+        if (video.paused) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
         }
       }
     };
 
     return (
       <div
-        className="phone-frame video-card-hover"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        className="phone-frame"
+        onClick={handleClick}
         style={{
           position: "relative",
           flexShrink: 0,
@@ -143,58 +124,37 @@ function HomePage(): React.ReactElement {
           alignItems: "center",
           justifyContent: "center",
           scrollSnapAlign: "center",
+          zIndex: 1001,
+          WebkitTransform: "translateZ(0)",
+          transform: "translateZ(0)",
+          willChange: "transform",
         }}
       >
-        {/* Thumbnail placeholder - shows while video loads */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundImage: `url(${thumbnailUrl})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            zIndex: 1,
-            opacity: 1,
-            transition: "opacity 0.3s ease",
-            WebkitBackfaceVisibility: "hidden",
-            backfaceVisibility: "hidden",
-          }}
-          className="video-thumbnail"
-        />
-        <iframe
-          ref={iframeRef}
-          data-src={videoUrl}
-          src={isPriorityVideo ? videoUrl : "about:blank"}
-          loading={isPriorityVideo ? "eager" : "lazy"}
-          allow="autoplay; encrypted-media"
-          allowFullScreen
+        <video
+          ref={videoRef}
+          src={videoPath}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
           style={{
             width: "100%",
             height: "100%",
-            border: "none",
+            objectFit: "cover",
             position: "absolute",
             top: 0,
             left: 0,
             backgroundColor: "#000000",
-            zIndex: 2,
-            // Safari-specific fixes
+            zIndex: 1002,
+            opacity: 1,
+            visibility: "visible",
+            display: "block",
             WebkitTransform: "translateZ(0)",
             transform: "translateZ(0)",
+            willChange: "transform",
             WebkitBackfaceVisibility: "hidden",
             backfaceVisibility: "hidden",
-          }}
-          title={`Video ${index + 1}`}
-          data-lazy-loaded={isPriorityVideo ? "true" : "false"}
-          onLoad={() => {
-            // Hide thumbnail when video loads
-            const container = iframeRef.current?.parentElement;
-            const thumbnail = container?.querySelector('.video-thumbnail');
-            if (thumbnail) {
-              (thumbnail as HTMLElement).style.opacity = "0";
-            }
           }}
         />
       </div>
@@ -203,10 +163,9 @@ function HomePage(): React.ReactElement {
 
   // Generate card data - use VideoCard component
   const generateCard = (index: number) => {
-    const videoIndex = index % videoUrls.length;
-    const videoUrl = videoUrls[videoIndex];
-    const videoId = videoIds[videoIndex];
-    return <VideoCard key={index} index={index} videoUrl={videoUrl} videoId={videoId} />;
+    const videoIndex = index % videoFiles.length;
+    const videoFile = videoFiles[videoIndex];
+    return <VideoCard key={index} videoFile={videoFile} />;
   };
 
   // Create 3 sets of cards (39 total) to eliminate blank space when scrolling right
@@ -215,73 +174,6 @@ function HomePage(): React.ReactElement {
   );
   const allCards = [...baseCards, ...baseCards, ...baseCards];
 
-  // Lazy load videos with Intersection Observer (only for videos outside viewport)
-  useEffect(() => {
-    const lazyVideos = document.querySelectorAll('iframe[data-src][data-lazy-loaded="false"]');
-    
-    if (lazyVideos.length === 0) return;
-
-    const videoObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const iframe = entry.target as HTMLIFrameElement;
-            const dataSrc = iframe.getAttribute('data-src');
-            if (dataSrc) {
-              iframe.src = dataSrc;
-              iframe.setAttribute('data-lazy-loaded', 'true');
-              
-              // Hide thumbnail when video loads
-              const container = iframe.parentElement;
-              const thumbnail = container?.querySelector('.video-thumbnail');
-              if (thumbnail) {
-                (thumbnail as HTMLElement).style.opacity = "0";
-              }
-              
-              // Ensure video starts muted when loaded
-              setTimeout(() => {
-                if (iframe.contentWindow) {
-                  iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-                }
-              }, 1000); // Reduced delay for faster initialization
-              
-              videoObserver.unobserve(iframe);
-            }
-          }
-        });
-      },
-      { rootMargin: '200px' }
-    );
-
-    lazyVideos.forEach((video) => videoObserver.observe(video));
-
-    return () => {
-      lazyVideos.forEach((video) => videoObserver.unobserve(video));
-    };
-  }, [allCards]);
-
-  // Ensure preloaded videos (first 5) start muted and hide thumbnails
-  useEffect(() => {
-    const preloadedVideos = document.querySelectorAll('iframe[data-lazy-loaded="true"]');
-    preloadedVideos.forEach((iframe) => {
-      const iframeElement = iframe as HTMLIFrameElement;
-      if (iframeElement.contentWindow && iframeElement.src !== 'about:blank') {
-        // Hide thumbnail when video loads
-        const container = iframeElement.parentElement;
-        const thumbnail = container?.querySelector('.video-thumbnail');
-        if (thumbnail) {
-          (thumbnail as HTMLElement).style.opacity = "0";
-        }
-        
-        // Wait for iframe to be ready, then mute
-        setTimeout(() => {
-          if (iframeElement.contentWindow) {
-            iframeElement.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-          }
-        }, 1000); // Reduced delay for faster initialization
-      }
-    });
-  }, []);
 
   return (
     <main
@@ -296,6 +188,42 @@ function HomePage(): React.ReactElement {
         backgroundColor: "#FFFFFF",
       }}
     >
+      {/* Desktop 5 SVG - Background layer only, z-index: 0 */}
+      <div
+        style={{
+          width: "100%",
+          height: "auto",
+          position: "relative",
+          margin: 0,
+          padding: 0,
+          overflow: "hidden",
+          backgroundColor: "#FFFFFF",
+          display: "block",
+          zIndex: 0,
+        }}
+      >
+        <img
+          src={desktop5Complete}
+          alt="How the Internet Works"
+          style={{
+            display: "block",
+            width: "100%",
+            maxWidth: "100%",
+            height: "auto",
+            position: "relative",
+            top: 0,
+            left: 0,
+            objectFit: "contain",
+            objectPosition: "top left",
+            pointerEvents: "none",
+            margin: 0,
+            padding: 0,
+            imageRendering: "crisp-edges",
+            zIndex: 0,
+          }}
+        />
+      </div>
+
       {/* Clean Navbar - SINGLE INSTANCE ONLY */}
       <Navbar />
 
@@ -307,7 +235,7 @@ function HomePage(): React.ReactElement {
           left: "0",
           width: "100%",
           height: "512px", // Extra vertical space so hovered cards don't clip
-          zIndex: 300,
+          zIndex: 1000,
           backgroundColor: "transparent",
         }}
       >
@@ -357,7 +285,7 @@ function HomePage(): React.ReactElement {
           left: "100px", // Exact left position from Desktop - 5.svg
           margin: 0,
           padding: 0,
-          zIndex: 100,
+          zIndex: 500,
           width: "547px",
           height: "266px",
         }}
@@ -371,40 +299,6 @@ function HomePage(): React.ReactElement {
             height: "100%",
             margin: 0,
             padding: 0,
-          }}
-        />
-      </div>
-
-      {/* Desktop 5 SVG - Pixel Perfect */}
-      <div
-        style={{
-          width: "100%",
-          height: "auto",
-          position: "relative",
-          margin: 0,
-          padding: 0,
-          overflow: "hidden",
-          backgroundColor: "#FFFFFF",
-          display: "block",
-        }}
-      >
-        <img
-          src={desktop5Complete}
-          alt="How the Internet Works"
-          style={{
-            display: "block",
-            width: "100%",
-            maxWidth: "100%",
-            height: "auto",
-            position: "relative",
-            top: 0,
-            left: 0,
-            objectFit: "contain",
-            objectPosition: "top left",
-            pointerEvents: "none",
-            margin: 0,
-            padding: 0,
-            imageRendering: "crisp-edges",
           }}
         />
       </div>

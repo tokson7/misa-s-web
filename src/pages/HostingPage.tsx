@@ -70,6 +70,11 @@ function HostingPage(): React.ReactElement {
             border: "4px solid #000000",
             overflow: "hidden",
             zIndex: 10,
+            backgroundColor: "#000000",
+            backgroundImage: "none",
+            WebkitTransform: "translateZ(0)",
+            transform: "translateZ(0)",
+            willChange: "transform",
           }}
         >
           <iframe
@@ -80,9 +85,12 @@ function HostingPage(): React.ReactElement {
               border: "none",
               borderRadius: "18px",
               objectFit: "cover",
-              // Safari-specific fixes
+              opacity: 1,
+              visibility: "visible",
+              display: "block",
               WebkitTransform: "translateZ(0)",
               transform: "translateZ(0)",
+              willChange: "transform",
               WebkitBackfaceVisibility: "hidden",
               backfaceVisibility: "hidden",
             }}
